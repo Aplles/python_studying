@@ -19,6 +19,6 @@ class Access(models.Model):
         return f"{self.user.username}-{self.page.name}"
 
     class Meta:
-        db_table = 'access'
+        db_table = 'accesses'
         verbose_name = 'Доступ'
         verbose_name_plural = 'Доступы'
