@@ -8,6 +8,7 @@ class LinkBlock(Block):
     page_link = models.ForeignKey(
         "Page",
         on_delete=models.CASCADE,
+        related_name="links",
         verbose_name="Страница (ссылка)"
     )
 
