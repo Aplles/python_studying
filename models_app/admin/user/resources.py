@@ -20,8 +20,6 @@ class UserAdmin(admin.ModelAdmin):
     list_display = [
         "id",
         "username",
-        "group",
-        "role",
     ]
     readonly_fields = ["id", ]
     list_display_links = (
