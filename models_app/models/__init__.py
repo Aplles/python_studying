@@ -4,3 +4,6 @@ from models_app.models.blocks.callout_block.models import CalloutBlock
 from models_app.models.blocks.image_block.models import ImageBlock
 from models_app.models.blocks.link_block.models import LinkBlock
 from models_app.models.blocks.divider_block.models import DividerBlock
+from models_app.models.user.models import User
+from models_app.models.page.models import Page
+from models_app.models.access.models import Access
