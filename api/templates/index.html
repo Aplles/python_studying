@@ -1,0 +1,121 @@
+{% load static %}
+{% load get %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Главная страница</title>
+  </head>
+  <body>
+    <header>
+      <p>Python studying</p>
+      <div class="searchEnter">
+        <div class="search">
+          <img src="{% static 'assets/search.svg' %}" alt="search" />
+          <p>Поиск</p>
+        </div>
+        <span>|</span>
+        <button>Войти</button>
+      </div>
+    </header>
+
+    <main>
+      <img src="{% static 'assets/pitonGlav.svg' %}" alt="" />
+      <hr />
+
+      <div class="discriptionMain">
+        <div class="captionMain">
+          <img src="{% static 'assets/iconGlav.svg' %}" alt=""/>
+          <h1>Python и разработка</h1>
+        </div>
+        <div class="blockDesc">
+          <p>
+            Приветствуем вас в мире Python! Здесь вы найдете все необходимые
+            ресурсы и материалы для успешного изучения <br />
+            языка программирования
+          </p>
+        </div>
+        <hr />
+        <div class="coursesBlocks">
+          <div class="courseBlock">
+            <div class="courseDesc">
+              <div class="textDesc">
+                list_nums = [<span class="blue">1</span>
+                <span class="orange">,</span><span class="blue">2</span>
+                <span class="orange">,</span><span class="blue">3</span>
+                <span class="orange">,</span><span class="blue">4</span>
+                <span class="orange">,</span><span class="blue">5</span>] <br />
+                <span class="orange">for</span> index
+                <span class="orange">,</span> num
+                <span class="orange">in</span>
+                <span class="purple">enumerate</span>(list_nums):
+                <br />
+                <span class="purple" style="margin-left: 25px">print</span
+                >(<span class="green">f'</span
+                ><span class="orange">{</span>index + <span class="blue">1</span
+                ><span class="orange">}</span>.
+                <span class="orange">{</span>num<span class="orange">}</span
+                ><span class="green">'</span>)
+              </div>
+            </div>
+            <h3>{% get_page '0881922c-2b22-4272-ac4b-a1fb7ae48d92' %}</h3>
+          </div>
+
+          <div class="courseBlock">
+            <div class="courseDesc">
+              <div class="textDesc">
+                <span class="orange">class</span> Coord: <br />
+                <span class="orange" style="margin-left: 15px">def</span>
+                <span class="crimson">__init__</span>(<span class="pink"
+                  >self</span
+                ><span class="orange">,</span> x<span class="orange">,</span>
+                y<span class="orange">,</span> z): <br />
+                <span class="pink" style="margin-left: 40px">self</span>.x = x
+                <br />
+                <span class="pink" style="margin-left: 40px">self</span>.y = y
+                <br />
+                <span class="pink" style="margin-left: 40px">self</span>.z = z
+              </div>
+            </div>
+            <h3>{% get_page '5774077a-eb22-4bac-9378-36323f835923' %}</h3>
+          </div>
+
+          <div class="courseBlock">
+            <div class="courseDesc">
+              <div class="textDesc">
+                <span class="orange">сlass</span> ProductView(ListView): <br />
+                <span style="margin-left: 25px">model = Product <br /></span>
+                <span style="margin-left: 25px"
+                  >template_name = <span class="green">'index.html'</span> <br
+                /></span>
+                <span style="margin-left: 25px"
+                  >context_object_name = <span class="green">'produsts'</span>
+                  <br
+                /></span>
+                <span style="margin-left: 25px"
+                  >ordering = [<span class="green">'id'</span>] <br
+                /></span>
+              </div>
+            </div>
+            <h3>{% get_page '54aab055-3df6-403f-bf33-e0d37a654883' %}</h3>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <h3>Индивидуальные занятия</h3>
+      <img src="{% static 'assets/footerInd.svg' %}" alt="" />
+    </footer>
+  </body>
+</html>

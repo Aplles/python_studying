@@ -8,8 +8,8 @@ class TextBlock(Block):
 
     TEXT = "TEXT"
     CODE_TEXT = "CODE"
-    HEADER_TEXT = "HEADER_TEXT"
-    QUOTE_TEXT = "QUOTE_TEXT"
+    HEADER_TEXT = "HEADERTEXT"
+    QUOTE_TEXT = "QUOTETEXT"
 
     TYPE = [
         (TEXT, "Текст"),
