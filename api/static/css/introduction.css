@@ -30,6 +30,8 @@
 
 .explanation_designation img {
   align-self: flex-start;
+  width: 20%;
+  height: 20%;
 }
 
 .lessons_designation {

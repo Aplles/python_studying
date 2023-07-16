@@ -13,7 +13,9 @@ class Page(models.Model):
                                     related_name='pages')
     icon = models.ImageField(
         upload_to="image_page/",
-        verbose_name="Иконка"
+        verbose_name="Иконка",
+        blank=True,
+        null=True
     )
 
     def __str__(self):

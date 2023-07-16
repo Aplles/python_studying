@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
+{% endblock %}
+
 {% block title %}Список конспектов{% endblock %}
 
 {% block content %}
