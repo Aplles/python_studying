@@ -27,10 +27,10 @@ class IntroductionView(View):
         return super().dispatch(request, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        outcome = ServiceOutcome(GetThemeService, kwargs)
+        outcome = ServiceOutcome(GetThemeService, request.GET | kwargs)
         return render(request, 'introduction.html', context={
-            'theme': outcome.result,
-            'blocks': outcome.result.blocks.all().order_by('position')
+            'theme': outcome.result['theme'],
+            'blocks': outcome.result['blocks']
         })
 
 
@@ -64,4 +64,14 @@ class SearchPageView(View):
         return render(request, 'basics.html', context={
             'page': outcome.result['page'],
             'themes': outcome.result['themes'],
+        })
+
+
+class SearchPageThemeView(View):
+
+    def get(self, request, *args, **kwargs):
+        outcome = ServiceOutcome(GetThemeService, kwargs | request.GET.dict())
+        return render(request, 'introduction.html', context={
+            'theme': outcome.result['theme'],
+            'blocks': outcome.result['blocks'],
         })

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<script>
+    function copyToClipboard() {
+        var textField = document.getElementById("myInput");
+        textField.select();
+        document.execCommand("copy");
+        alert("Текст скопирован в буфер обмена!");
+    }
+</script>
+<header>
+    <div class="linkblock">
+        <a href="{% url 'index' %}" class="">Python и разработка</a> /
+        <a href="{% url 'user' %}">Создать пользователя</a>
+        <hr>
+        <form action="{% url 'user' %}" method="post">
+            {% csrf_token %}
+            <button style="background-color: gray;height: 50px;width: 300px; margin-top: 20px;border-radius: 10px">
+                Создать пользователя
+            </button>
+        </form>
+        {% if username %}
+        <label for="myInput">Данные:</label>
+        <input type="text" id="myInput" value="Логин: {{username}}, Пароль: {{password}}" style="width: 500px">
+        <br>
+        <button onclick="copyToClipboard()">Скопировать</button>
+        {% endif %}
+    </div>
+</header>
+{% endblock%}
