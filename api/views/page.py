@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from service_objects.services import ServiceOutcome
 
+from api.services.page.fill import FillPageService
 from api.services.page.get import GetPageService
 from models_app.models import Page
 
@@ -37,4 +38,10 @@ class BasicView(View):
 class ConstructorView(View):
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'constructor.html')
+        return render(request, 'constructor.html', context={
+            "pages": Page.objects.all()
+        })
+
+    def post(self, request, *args, **kwargs):
+        ServiceOutcome(FillPageService, request.GET, request.FILES)
+        return redirect("constructor")

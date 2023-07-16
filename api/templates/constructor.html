@@ -5,45 +5,56 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
-    <link rel="stylesheet" href="{% static '/css/introduction.css"' %}" />
-    <link rel="stylesheet" href="{% static '/css/constructor.css' %}" />
+    <link rel="stylesheet" href="{% static '/css/introduction.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/constructor.css' %}"/>
 {% endblock %}
 
 {% block content %}
-<header>
-    <div class="linkblock">
-        <a href="./index.html" class="">Python и разработка</a> /
-        <a href=""> Конструктор</a>
-    </div>
+    <header>
+        <div class="linkblock">
+            <a href="./index.html" class="">Python и разработка</a> /
+            <a href="{% url 'constructor' %}">Конструктор</a>
+        </div>
 
-    <button class="enter">Выйти</button>
-</header>
+        <button class="enter">Выйти</button>
+    </header>
+    <form action="{% url 'constructor' %}" method="post">
+        <main class="mainSize">
+            <h1 class="pageTitle">Конструктор конспекта</h1>
+            <hr/>
+            <div class="select_page">
+                <label for="select_page">Выберите страницу</label>
+                <select name="page_id" id="select_page">
+                    {% for page in pages %}
+                        <option class="option_page" value="{{ page.id }}">{{ page.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-<main class="mainSize">
-    <h1 class="pageTitle">Конструктор конспекта</h1>
-    <hr/>
-    <div id="blocks-container"></div>
-    <div class="btnBlock">
-        <button onclick="createBlock()">Блок с текстом</button>
-        <button onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
-        <button onclick="createBlock_ExplanationDesignation()">
-            Блок с икнокой и текстом
-        </button>
-        <button onclick="createBlock_link()">Блок с ссылкой</button>
-        <button onclick="createBlock_ImageBlock()">Блок с картинкой</button>
-        <button onclick="createBlock_TextBlock_Line()">
-            Блок с чертой слева (Есть на скринах)
-        </button>
-        <button onclick="createBlock_hrBlock()">
-            Блок с разделяющей линией
-        </button>
-        <button onclick="createBlock_H1()">
-            Блок с заголовком (Большой текст)
-        </button>
-        <button type="submit" onclick="assignIDs()">Сохранить</button>
-        <!-- <button onclick=" saveInputs()">Сохранить Input</button> -->
-    </div>
-</main>
-<script src="{% static '/js/constructor.js' %}"></script>
-<script src="{% static '/js/colorIntrod.js' %}"></script>
+            <div id="blocks-container"></div>
+            <div class="btnBlock">
+                <button type="button" onclick="createBlock()">Блок с текстом</button>
+                <button type="button" onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
+                <button type="button" onclick="createBlock_ExplanationDesignation()">
+                    Блок с икнокой и текстом
+                </button>
+                <button type="button" onclick="createBlock_link()">Блок с ссылкой</button>
+                <button type="button" onclick="createBlock_ImageBlock()">Блок с картинкой</button>
+                <button type="button" onclick="createBlock_TextBlock_Line()">
+                    Блок с чертой слева (Есть на скринах)
+                </button>
+                <button type="button" onclick="createBlock_hrBlock()">
+                    Блок с разделяющей линией
+                </button>
+                <button type="button" onclick="createBlock_H1()">
+                    Блок с заголовком (Большой текст)
+                </button>
+                <button type="button" onclick="assignIDs()">Сохранить изменения</button>
+                <button type="submit">Сохранить конспект</button>
+            </div>
+        </main>
+        {% csrf_token %}
+    </form>
+    <script src="{% static '/js/constructor.js' %}"></script>
+    <script src="{% static '/js/colorIntrod.js' %}"></script>
 {% endblock %}

@@ -4,13 +4,17 @@
 {% block title %}Главная страница{% endblock %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
 {% endblock %}
 
 {% block content %}
     <header>
         <a href="{% url 'index' %}" class="">Python studying</a>
-        <button class="enter">Войти</button>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% else %}
+            <button class="enter">Войти</button>
+        {% endif %}
     </header>
 
     <main>
@@ -23,6 +27,13 @@
                     <img src="{% static '/assets/iconGlav.svg' %}" alt=""/>
                     <h1 class="pageTitle">Python и разработка</h1>
                 </div>
+
+                {% if error %}
+                    <div class="blockDesc">
+                        <p>{{ error }}</p>
+                    </div>
+                {% endif %}
+
                 <div class="blockDesc">
                     <p>
                         Приветствуем вас в мире Python! Здесь вы найдете все необходимые
@@ -54,11 +65,12 @@
             </div>
         </div>
         <section class="wrapper">
-            <form action="" class="signInForm">
+            <form action="{% url 'login' %}" class="signInForm" method="post">
+                {% csrf_token %}
                 <h1>Авторизация</h1>
                 <div class="inputBtn_signInForm">
-                    <input type="text" placeholder="Логин">
-                    <input type="password" placeholder="Пароль">
+                    <input type="text" placeholder="Логин" name="username">
+                    <input type="password" placeholder="Пароль" name="password">
                     <button type="submit" class="enter_signInForm">Войти</button>
                 </div>
             </form>
