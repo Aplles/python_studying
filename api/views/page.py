@@ -13,3 +13,21 @@ class PageView(View):
             'page': page,
             'pages': pages
         })
+
+
+class IntroductionView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'introduction.html')
+
+
+class BasicView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'basics.html')
+
+
+class ConstructorView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'constructor.html')
