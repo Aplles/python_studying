@@ -54,3 +54,13 @@ class ConstructorView(View):
     def post(self, request, *args, **kwargs):
         ServiceOutcome(FillPageService, request.GET, request.FILES)
         return redirect("constructor")
+
+
+class SearchPageView(View):
+
+    def get(self, request, *args, **kwargs):
+        outcome = ServiceOutcome(GetPageService, kwargs | {'user_pk': request.user.pk} | request.GET.dict())
+        return render(request, 'basics.html', context={
+            'page': outcome.result['page'],
+            'themes': outcome.result['themes'],
+        })
