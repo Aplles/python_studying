@@ -36,7 +36,7 @@ class FillPageService(ServiceWithResult):
             if type_block in self.LIST_BLOCKS:
                 ServiceOutcome(
                     self.LIST_BLOCKS[type_block],
-                    self.data | {
+                    self.data.dict() | {
                         "page": self._page
                     },
                 )
