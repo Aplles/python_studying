@@ -22,7 +22,7 @@ class FillPageService(ServiceWithResult):
     }
 
     def process(self):
-        self.fill()
+        self._fill()
         return self
 
     @property
