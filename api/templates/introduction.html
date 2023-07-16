@@ -5,30 +5,34 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
-    <link rel="stylesheet" href="{% static '/css/introduction.css"' %}" />
+    <link rel="stylesheet" href="{% static '/css/introduction.css'" %}" />
 {% endblock %}
 
 {% block content %}
 <script src="{% static 'js/colorIntrod.js' %}"></script>
 <header>
     <div class="linkblock">
-        <a href="./index.html" class="">Python и разработка</a> /
-        <a href="">Python-основы</a> /
-        <a href="">Введение в написание программ</a>
+        <a href="{% url 'index' %}" class="">Python и разработка</a> /
+        <a href="{% url 'basic' theme.parent_page.id%}">{{theme.parent_page.name}}</a> /
+        <a href="">{{theme.name}}</a>
     </div>
 
     <button class="enter">Выйти</button>
 </header>
 <main class="mainSize">
-    <img src="{% static '/assets/1basics.svg %}" alt="" / style="width: 100px; height:
+    <img src="{% static '/assets/1basics.svg' %}" alt="" / style="width: 100px; height:
     120px;">
-    <h1 class="pageTitle">Введение в написание программ</h1>
+    <h1 class="pageTitle">{{theme.name}}</h1>
 
     <div class="searchBasics">
         <input type="text" placeholder="Поиск..."/>
         <button class="searchBtn">Найти</button>
     </div>
     <hr/>
+    {% for block in theme.blocks.all %}
+    {% if block.polymorphic_ctype.model == 'textblock'%}
+    {% endif%}
+    <h3>{{block.text}}</h3>
     <h3>Переменные, оператор присваивания, функции type</h3>
     <div class="designation">
         <svg
@@ -115,6 +119,7 @@
     <section class="codeExample">
         <img src="{% static '/assets/codeEx.png' %}" alt=""/>
     </section>
+    {% endfor %}
     <button type="submit" class="btnQuestion">Оставить вопрос</button>
     <div class="sendRequestBlock">
         <!-- <input type="text" class="inputQuestion" /> -->

@@ -26,7 +26,11 @@
     </div>
     <hr/>
     {% for theme in themes %}
-    <a href="./introduction.html">
+    {% if theme.lock %}
+    <a>
+        {% else %}
+        <a href="{% url 'introduction' theme.id %}">
+        {% endif%}
         <div class="theme">
             <div class="leaftTheme">
                 <img src="{{theme.icon.url}}" alt=""/>
@@ -40,30 +44,5 @@
         </div>
     </a>
     {% endfor %}
-<!--    <a href="./introduction.html">-->
-<!--        <div class="theme">-->
-<!--            <div class="leaftTheme">-->
-<!--                <img src="{% static '/assets/1basics.svg' %}" alt=""/>-->
-<!--                Введение в написание программ-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </a>-->
-
-<!--    <div class="theme">-->
-<!--        <div class="leaftTheme">-->
-<!--            <img src="{% static '/assets/2basics.svg' %}" alt=""/>-->
-<!--            <p>Переменные и типы данных</p>-->
-<!--        </div>-->
-<!--    </div>-->
-
-<!--    <div class="theme">-->
-<!--        <div class="leaftTheme">-->
-<!--            <img src="./assets/3basics.svg" alt=""/>-->
-<!--            <p>Арифметические операции с числами</p>-->
-<!--        </div>-->
-<!--        <div class="lock">-->
-<!--            <img src="./assets/lock.svg" alt=""/>-->
-<!--        </div>-->
-<!--    </div>-->
 </main>
 {% endblock %}

@@ -1,9 +1,11 @@
-from django.shortcuts import render
+from django.http import Http404
+from django.shortcuts import render, redirect
 from django.views import View
 from service_objects.services import ServiceOutcome
 
 from api.services.page.get import GetPageService
-from models_app.models import Page
+from api.services.page.get_theme import GetThemeService
+from models_app.models import Page, Access
 
 
 class PageView(View):
@@ -18,16 +20,24 @@ class PageView(View):
 
 
 class IntroductionView(View):
+    def dispatch(self, request, *args, **kwargs):
+        post = Access.objects.filter(user=request.user, page__id=kwargs['id'])
+        if not post.exists():
+            return redirect('index')
+        return super().dispatch(request, **kwargs)
 
     def get(self, request, *args, **kwargs):
-        return render(request, 'introduction.html')
+        outcome = ServiceOutcome(GetThemeService, kwargs)
+        return render(request, 'introduction.html', context={
+            'theme': outcome.result
+        })
 
 
 class BasicView(View):
 
     def get(self, request, *args, **kwargs):
         outcome = ServiceOutcome(GetPageService,
-                                 kwargs | {'user': request.user})
+                                 kwargs | {'user_pk': request.user.pk})
         return render(request, 'basics.html', context={
             'page': outcome.result['page'],
             'themes': outcome.result['themes'],
