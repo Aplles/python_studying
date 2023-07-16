@@ -25,8 +25,10 @@
     <h1 class="pageTitle">{{theme.name}}</h1>
 
     <div class="searchBasics">
-        <input type="text" placeholder="Поиск..."/>
-        <button class="searchBtn">Найти</button>
+        <form action="{% url 'theme_search' theme.id %}" method="get">
+                <input type="text" name="search" placeholder="Поиск..."/>
+                <button type="submit" class="searchBtn">Найти</button>
+            </form>
     </div>
     <hr/>
     {% for block in blocks %}
