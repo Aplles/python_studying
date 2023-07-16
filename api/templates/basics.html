@@ -6,45 +6,60 @@
 {% block content %}
 <header>
     <div class="linkblock">
-        <a href="./index.html" class="">Python и разработка</a> /
-        <a href="">Python-основы</a>
+        <a href="{% url 'index' %}" class="">Python и разработка</a> /
+        <a href="">{{page.name}}</a>
     </div>
     <button class="enter">Выйти</button>
 </header>
 <main>
-    <img src="{% static '/assets/pytBasics.svg' %}" alt="" / style="width: 100px; height:
+    <img src="{{page.icon.url}}" alt="" / style="width: 100px; height:
     120px;">
-    <h1 class="pageTitle">Python-основы</h1>
+    <h1 class="pageTitle">{{page.name}}</h1>
 
     <div class="searchBasics">
         <input type="text" placeholder="Поиск..."/>
         <button class="searchBtn">Найти</button>
     </div>
     <hr/>
+    {% for theme in themes %}
     <a href="./introduction.html">
         <div class="theme">
             <div class="leaftTheme">
-                <img src="{% static '/assets/1basics.svg' %}" alt=""/>
-                Введение в написание программ
+                <img src="{{theme.icon.url}}" alt=""/>
+                {{theme.name}}
             </div>
+            {% if theme.lock %}
+            <div class="lock">
+                <img src="{% static '/assets/lock.svg'%}" alt=""/>
+            </div>
+            {% endif %}
         </div>
     </a>
+    {% endfor %}
+<!--    <a href="./introduction.html">-->
+<!--        <div class="theme">-->
+<!--            <div class="leaftTheme">-->
+<!--                <img src="{% static '/assets/1basics.svg' %}" alt=""/>-->
+<!--                Введение в написание программ-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </a>-->
 
-    <div class="theme">
-        <div class="leaftTheme">
-            <img src="{% static '/assets/2basics.svg' %}" alt=""/>
-            <p>Переменные и типы данных</p>
-        </div>
-    </div>
+<!--    <div class="theme">-->
+<!--        <div class="leaftTheme">-->
+<!--            <img src="{% static '/assets/2basics.svg' %}" alt=""/>-->
+<!--            <p>Переменные и типы данных</p>-->
+<!--        </div>-->
+<!--    </div>-->
 
-    <div class="theme">
-        <div class="leaftTheme">
-            <img src="./assets/3basics.svg" alt=""/>
-            <p>Арифметические операции с числами</p>
-        </div>
-        <div class="lock">
-            <img src="./assets/lock.svg" alt=""/>
-        </div>
-    </div>
+<!--    <div class="theme">-->
+<!--        <div class="leaftTheme">-->
+<!--            <img src="./assets/3basics.svg" alt=""/>-->
+<!--            <p>Арифметические операции с числами</p>-->
+<!--        </div>-->
+<!--        <div class="lock">-->
+<!--            <img src="./assets/lock.svg" alt=""/>-->
+<!--        </div>-->
+<!--    </div>-->
 </main>
 {% endblock %}
