@@ -11,6 +11,10 @@ class Page(models.Model):
                                     on_delete=models.CASCADE,
                                     verbose_name='Родительская страница',
                                     related_name='pages')
+    icon = models.ImageField(
+        upload_to="image_page/",
+        verbose_name="Иконка"
+    )
 
     def __str__(self):
         return f'{self.id} {self.name}'
