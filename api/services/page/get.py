@@ -19,27 +19,29 @@ class GetPageService(ServiceWithResult):
         return self
 
     @property
-    @lru_cache()
+    @lru_cache
     def _get_page(self):
         return Page.objects.get(id=self.cleaned_data["id"])
 
     @property
     def _get_themes(self):
         themes = Page.objects.filter(parent_page=self._get_page)
+        if self.data.get('search'):
+            themes = themes.filter(name__icontains=self.data['search'])
         if not self.cleaned_data['user_pk']:
             return themes.annotate(lock=Value("Lock"))
         for theme in themes:
-            theme.lock = not theme.name in self._get_access_pages
+            theme.lock = theme.name not in self._get_access_pages
         return themes
 
     @property
-    @lru_cache()
+    @lru_cache
     def _get_access_pages(self):
         return Access.objects.select_related('page').filter(
             user=self._get_user
         ).values_list('page__name', flat=True)
 
     @property
-    @lru_cache()
+    @lru_cache
     def _get_user(self):
         return User.objects.get(pk=self.cleaned_data['user_pk'])

@@ -2,47 +2,49 @@
 {% load static %}
 
 {% block style %}
-<link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
 {% endblock %}
 
 {% block title %}Список конспектов{% endblock %}
 
 {% block content %}
-<header>
-    <div class="linkblock">
-        <a href="{% url 'index' %}" class="">Python и разработка</a> /
-        <a href="">{{page.name}}</a>
-    </div>
-    <button class="enter">Выйти</button>
-</header>
-<main>
-    <img src="{{page.icon.url}}" alt="" / style="width: 100px; height:
-    120px;">
-    <h1 class="pageTitle">{{page.name}}</h1>
+    <header>
+        <div class="linkblock">
+            <a href="{% url 'index' %}" class="">Python и разработка</a> /
+            <a href="">{{ page.name }}</a>
+        </div>
+        <button class="enter">Выйти</button>
+    </header>
+    <main>
+        <img src="{{ page.icon.url }}" alt="" / style="width: 100px; height:
+        120px;">
+        <h1 class="pageTitle">{{ page.name }}</h1>
 
-    <div class="searchBasics">
-        <input type="text" placeholder="Поиск..."/>
-        <button class="searchBtn">Найти</button>
-    </div>
-    <hr/>
-    {% for theme in themes %}
-    {% if theme.lock %}
-    <a>
-        {% else %}
-        <a href="{% url 'introduction' theme.id %}">
-        {% endif%}
+        <div class="searchBasics">
+            <form action="{% url 'search' page.id %}" method="get">
+                <input type="text" name="search" placeholder="Поиск..."/>
+                <button type="submit" class="searchBtn">Найти</button>
+            </form>
+        </div>
+        <hr/>
+        {% for theme in themes %}
+            {% if theme.lock %}
+                <a>
+            {% else %}
+                <a href="{% url 'introduction' theme.id %}">
+            {% endif %}
         <div class="theme">
             <div class="leaftTheme">
-                <img src="{{theme.icon.url}}" alt=""/>
-                {{theme.name}}
+                <img src="{{ theme.icon.url }}" alt=""/>
+                {{ theme.name }}
             </div>
             {% if theme.lock %}
-            <div class="lock">
-                <img src="{% static '/assets/lock.svg'%}" alt=""/>
-            </div>
+                <div class="lock">
+                    <img src="{% static '/assets/lock.svg' %}" alt=""/>
+                </div>
             {% endif %}
         </div>
-    </a>
-    {% endfor %}
-</main>
+        </a>
+        {% endfor %}
+    </main>
 {% endblock %}
