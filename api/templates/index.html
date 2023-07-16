@@ -11,7 +11,11 @@
     <header>
         <a href="{% url 'index' %}" class="">Python studying</a>
         {% if request.user.is_authenticated %}
+            {% if request.user.is_superuser %}
+                <a href="{% url 'constructor' %}">Конструктор</a>
+            {% endif %}
             <a href="{% url 'logout' %}">Выйти</a>
+
         {% else %}
             <button class="enter">Войти</button>
         {% endif %}

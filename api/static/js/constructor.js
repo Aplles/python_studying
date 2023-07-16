@@ -225,6 +225,7 @@ function createBlock_link() {
   divBlock.appendChild(lessons_designation);
   var navLesson_btn = document.createElement("button");
   navLesson_btn.innerHTML = "Добавить";
+  navLesson_btn.type = "button";
   navLesson_btn.classList.add("dltBtn");
   divBlock.appendChild(navLesson_btn);
 
@@ -410,7 +411,35 @@ function saveInputs() {
 
     input.name = newName;
   });
+
+  // Создать скрытые поля с информацией о количестве каждого типа input
+  var hiddenInputs = [];
+  var types = [
+    "TextBlock",
+    "CalloutBlock",
+    "LinkBlock",
+    "ImageBlock",
+    "DividerBlock",
+  ];
+
+  types.forEach(function (type) {
+    var typeCount = main.querySelectorAll(`input[name^="${type}_"]`).length;
+
+    // for (var i = 0; i < 5; i++) {
+    var hiddenInput = document.createElement("input");
+    hiddenInput.type = "hidden";
+    hiddenInput.value = typeCount;
+    hiddenInput.name = `${type}_new`;
+    hiddenInputs.push(hiddenInput);
+    // }
+  });
+
+  // Добавляем 5 скрытых полей после блока main
+  hiddenInputs.forEach(function (hiddenInput) {
+    main.parentNode.insertBefore(hiddenInput, main.nextSibling);
+  });
 }
+
 //id
 function assignIDs() {
   var blocks = document.getElementsByClassName("divBlock");

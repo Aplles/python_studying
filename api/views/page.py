@@ -53,7 +53,7 @@ class ConstructorView(View):
         })
 
     def post(self, request, *args, **kwargs):
-        ServiceOutcome(FillPageService, request.GET, request.FILES)
+        ServiceOutcome(FillPageService, request.POST, request.FILES)
         return redirect("constructor")
 
 
