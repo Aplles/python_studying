@@ -1,0 +1,60 @@
+header {
+  padding: 20px 0 40px 0;
+}
+main {
+  width: 784px;
+  margin: 40px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.mainSize {
+  height: 2315px;
+}
+.searchBasics input {
+  width: 784px;
+  height: 40px;
+  padding: 9px 0px 9px 30px;
+  background-color: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+  position: absolute;
+}
+
+.searchBasics input::placeholder {
+  color: rgba(98, 98, 98, 1);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.searchBasics button {
+  background-color: rgba(237, 237, 237, 1);
+  padding: 10px 30px;
+  color: rgba(55, 55, 55, 1);
+  border-radius: 7px;
+  position: relative;
+  left: 86%;
+}
+.leaftTheme {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.theme {
+  width: 784px;
+  height: 40px;
+  padding: 0px 20px 0px 25px;
+  background-color: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 1);
+}

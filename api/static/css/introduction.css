@@ -1,0 +1,128 @@
+.designation {
+  display: flex;
+  gap: 20px;
+}
+
+.example_designation {
+  width: 784px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 0px 47px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.explanation_designation {
+  width: 784px;
+  /* height: 100px; */
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 16px 71px 16px 36px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.explanation_designation img {
+  align-self: flex-start;
+}
+
+.lessons_designation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.nav_lesson {
+  display: flex;
+  gap: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 24px;
+  width: 31.63%;
+  background: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav_lesson p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.codeExample {
+  padding: 10px;
+  border-radius: 7px;
+  background: #4e4e4e;
+}
+
+.btnQuestion {
+  border-radius: 7px;
+  background: #4e4e4e;
+  padding: 15px 285px;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.inputQuestion {
+  border-radius: 7px;
+  border: 1px solid #fff;
+  padding: 20px 25px 40px 30px;
+  width: 782px;
+  height: 104px;
+  position: absolute;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.iconSend {
+  position: relative;
+  top: 70%;
+  left: 95%;
+}
+
+.sendRequestBlock {
+  width: 782px;
+  height: 104px;
+}
+
+.mainSize h3 {
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.designation p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.example_designation p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.explanation_designation p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.green-text {
+  color: rgba(106, 135, 89, 1);
+}
+
+.orange-text {
+  color: rgba(201, 119, 48, 1);
+}

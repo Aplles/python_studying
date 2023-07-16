@@ -1,0 +1,85 @@
+* {
+  font-family: inter;
+}
+
+a {
+  color: rgba(255, 255, 255, 1);
+}
+
+hr {
+  border: none;
+  border-top: 1px white solid;
+}
+
+body {
+  background: rgba(47, 47, 47, 1);
+  color: rgba(255, 255, 255, 1);
+}
+header,
+main,
+footer {
+  width: 1390px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 20px 0px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+  font-weight: 600;
+}
+a:hover {
+  color: rgba(184, 184, 184, 1);
+  cursor: pointer;
+}
+a:active {
+  color: rgba(255, 255, 255, 1);
+  cursor: pointer;
+}
+.pageTitle {
+  width: 70%;
+}
+.theme:hover,
+.courseBlock:hover {
+  background-color: rgba(94, 94, 94, 1);
+  cursor: pointer;
+}
+
+.theme:active,
+.courseBlock:active {
+  background-color: rgba(55, 55, 55, 1);
+  cursor: pointer;
+}
+
+.enter:hover {
+  color: rgba(184, 184, 184, 1);
+  cursor: pointer;
+}
+
+.enter:active {
+  color: rgba(111, 111, 111, 1);
+}
+
+.searchBtn:hover {
+  background-color: rgba(217, 217, 217, 1);
+}
+
+.searchBtn:active {
+  background-color: rgba(179, 179, 179, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.enter_signInForm:hover,
+.nav_lesson:hover,
+.btnQuestion:hover {
+  background-color: rgba(99, 99, 99, 1);
+  cursor: pointer;
+}
+
+.enter_signInForm:active,
+.nav_lesson:active,
+.btnQuestion:active {
+  background-color: rgba(55, 55, 55, 1);
+  cursor: pointer;
+}

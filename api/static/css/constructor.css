@@ -1,0 +1,64 @@
+.btnBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 90px;
+}
+
+.btnBlock button {
+  width: auto;
+  padding: 10px 20px;
+  color: rgba(239, 239, 239, 1);
+  background-color: rgba(78, 78, 78, 1);
+  border-radius: 7px;
+}
+
+.btnBlock button:last-child {
+  background-color: rgba(237, 237, 237, 1);
+  color: rgba(55, 55, 55, 1);
+}
+
+#blocks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* .divBlock,
+.block {
+  height: 150px;
+}
+hr.block {
+  height: 30px;
+} */
+.inputBtn {
+  border-color: rgba(255, 255, 255, 1);
+  border-radius: 7px;
+  border: 1px solid;
+  padding: 15px;
+}
+
+.divBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: rgb(59, 59, 59);
+  border-radius: 7px;
+  padding: 2px;
+  padding-bottom: 10px;
+}
+input {
+  width: 100%;
+  height: 100%;
+}
+
+.lessons_designation {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav_lesson {
+  flex-basis: 25%;
+  /* Specify the desired width for each block */
+  margin: 10px;
+}

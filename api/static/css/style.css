@@ -1,11 +1,3 @@
-* {
-  font-family: inter;
-}
-hr {
-  border: none;
-  border-top: 1px white solid;
-}
-
 .blue {
   color: rgba(74, 118, 149, 1);
 }
@@ -30,23 +22,6 @@ hr {
   color: rgba(143, 84, 125, 1);
 }
 
-body {
-  background: rgba(47, 47, 47, 1);
-  color: rgba(255, 255, 255, 1);
-}
-header,
-main,
-footer {
-  width: 1390px;
-  margin: 0 auto;
-}
-header {
-  padding: 20px 0px;
-  display: flex;
-  justify-content: space-between;
-  font-size: 18px;
-  font-weight: 600;
-}
 .searchEnter {
   display: flex;
   gap: 20px;
@@ -56,7 +31,14 @@ header {
   display: flex;
   gap: 5px;
 }
-
+main {
+  display: flex;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
 .captionMain {
   display: flex;
   gap: 20px;
@@ -83,7 +65,7 @@ header {
   margin-top: 60px;
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 69px;
 }
 
 .courseBlock {
@@ -119,6 +101,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: end;
+  background-color: #000000;
 }
 
 footer h3 {
@@ -126,4 +109,62 @@ footer h3 {
   font-weight: 600;
   line-height: 33.89px;
   padding: 25px;
+}
+.wrapper {
+  display: none;
+}
+
+.noactive {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.signInForm {
+  width: 705px;
+  height: 713px;
+  border-radius: 20px;
+  border: 1px solid #fff;
+  background-color: rgba(47, 47, 47, 1);
+  margin-top: 130px;
+  margin-bottom: 321px;
+  padding: 104px 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 114px;
+  align-items: center;
+}
+
+.signInForm h1 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.inputBtn_signInForm input {
+  width: 520px;
+  height: 60px;
+  border-radius: 7px;
+  background: #e2e2e2;
+  padding: 21px 15px;
+  color: #4e4e4e;
+}
+
+.inputBtn_signInForm button {
+  width: 520px;
+  height: 60px;
+  flex-shrink: 0;
+  border-radius: 7px;
+  background: #4e4e4e;
+}
+
+.inputBtn_signInForm {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
 }

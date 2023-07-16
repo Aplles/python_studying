@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Создание и удаление блоков</title>
+    <style>
+      .red-block {
+        background-color: red;
+      }
+
+      .blue-block {
+        background-color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <button onclick="createBlock()">Создать блок (красный)</button>
+    <button onclick="createBlock_H1()">Создать блок (синий)</button>
+
+    <div id="blocks-container"></div>
+
+    <script>
+      let blockCounter = 1; // Счетчик блоков
+
+      function createBlock(position) {
+        const divBlock = document.createElement("div");
+        divBlock.classList.add("divBlock");
+        divBlock.id = "TextBlock_TEXT_" + position;
+        // Создаем новый блок p
+        const P = document.createElement("P");
+        divBlock.appendChild(P);
+        P.classList.add("block");
+        // Создаем input для ввода текста
+        var input = document.createElement("input");
+        input.type = "text";
+        input.classList.add("inputBtn");
+        var deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Удалить";
+        deleteButton.onclick = function () {
+          divBlock.remove();
+        };
+
+        // Создаем кнопку "добавить"
+        var button = document.createElement("button");
+        button.innerHTML = "Добавить";
+        button.onclick = function () {
+          // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
+          var text = input.value;
+          P.innerHTML += text + "";
+          input.value = "";
+
+          // Удаляем input и button
+          divBlock.removeChild(input);
+          divBlock.removeChild(button);
+        };
+        divBlock.appendChild(input);
+        divBlock.appendChild(button);
+        // Добавляем новый блок в контейнер
+        const container = document("blocks-container");
+        container.appendChild(divBlock);
+        divBlock.appendChild(deleteButton);
+      }
+
+      function createBlock_H1(position) {
+        const divBlock = document.createElement("div");
+        divBlock.classList.add("divBlock");
+        divBlock.id = "TitleBlock_TITLE_" + position;
+        // Создаем новый блок h1
+        const H1 = document.createElement("h1");
+        H1.classList.add("block");
+        divBlock.appendChild(H1);
+
+        // Создаем input для ввода текста
+        var input = document.createElement("input");
+        input.type = "text";
+        input.classList.add("inputBtn");
+        var deleteButton = document.createElement("button");
+        deleteButton.innerHTML = "Удалить";
+        deleteButton.onclick = function () {
+          divBlock.remove();
+        };
+
+        // Создаем кнопку "добавить"
+        var button = document.createElement("button");
+        button.innerHTML = "Добавить";
+        button.onclick = function () {
+          // При клике на кнопку добавляем текст в параграф и очищаем поле ввода
+          var text = input.value;
+          H1.innerHTML += text + "";
+          input.value = "";
+
+          // Удаляем input и button
+          divBlock.removeChild(input);
+          divBlock.removeChild(button);
+        };
+        divBlock.appendChild(input);
+        divBlock.appendChild(button);
+        // Добавляем новый блок в контейнер
+        const container = document("blocks-container");
+        container.appendChild(divBlock);
+        divBlock.appendChild(deleteButton);
+      }
+
+      function addIdToBlock(blockId) {
+        const block = document(blockId);
+        if (block) {
+          const idInput = prompt("Введите id для блока:");
+          block.id = idInput;
+        } else {
+          alert("Блок не найден.");
+        }
+      }
+
+      // Пример использования:
+      createBlock(blockCounter); // Создание блока с текстом
+      blockCounter++; // Увеличение счетчика блоков
+
+      createBlock_H1(blockCounter); // Создание блока с заголовком
+      blockCounter++; // Увеличение счетчика блоков
+
+      // Добавление id к блокам по кнопке "Добавить id"
+      const addIdButton = document("add-id-button");
+      addIdButton.addEventListener("click", function () {
+        const blockId = prompt("Введите id блока:");
+        addIdToBlock(blockId);
+      });
+    </script>
+  </body>
+</html>
