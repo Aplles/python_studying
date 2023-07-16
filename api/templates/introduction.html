@@ -29,110 +29,93 @@
         <button class="searchBtn">Найти</button>
     </div>
     <hr/>
-    {% for block in theme.blocks.all %}
+    {% for block in blocks %}
     {% if block.polymorphic_ctype.model == 'textblock'%}
+        {% if block.type == 'TEXT'%}
+            <p>
+                {{ block.text }}
+            </p>
+        {% elif block.type == 'CODE'%}
+            <div class="example_designation">
+                <p>{{block.text}}</p>
+            </div>
+        {% elif block.type == 'HEADERTEXT'%}
+            <h3>{{block.text}}</h3>
+        {% elif block.type == 'QUOTETEXT' %}
+            <div class="designation">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="10"
+                        height="81"
+                        viewBox="0 0 4 81"
+                        fill="none"
+                >
+                    <path
+                            d="M2 2L2 79"
+                            stroke="white"
+                            stroke-width="4"
+                            stroke-linecap="round"
+                    />
+                </svg>
+                <p>
+                    {{block.text}}
+                </p>
+            </div>
+        {%endif%}
+    {% elif block.polymorphic_ctype.model == 'calloutblock' %}
+        <div class="explanation_designation">
+            <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="36"
+                    viewBox="0 0 11 18"
+                    fill="none"
+            >
+                <path
+                        d="M5.5 0C2.46766 0 0 2.43465 0 5.42666C0 6.54866 0.344668 7.62666 0.997345 8.54333C1.86999 9.77165 2.33199 11.1943 2.33199 12.65V12.6537H8.66801V12.65C8.66801 11.1943 9.13001 9.77165 10.0063 8.54333C10.6553 7.62666 11 6.54866 11 5.42666C11 2.43465 8.53234 0 5.5 0Z"
+                        fill="#FFF598"
+                />
+                <path
+                        d="M8.66755 13.387H2.33154V14.3367H8.66755V13.387Z"
+                        fill="#FFF598"
+                />
+                <path
+                        d="M2.33154 15.6383C2.33154 16.2543 2.83387 16.7567 3.45354 16.7567H3.95223C4.25654 17.27 4.85054 17.6 5.49955 17.6C6.14856 17.6 6.74255 17.27 7.04689 16.7567H7.54555C8.16522 16.7567 8.66755 16.2543 8.66755 15.6383V15.07H2.33154V15.6383Z"
+                        fill="#FFF598"
+                />
+            </svg>
+            <p>
+                {{block.text}}
+            </p>
+        </div>
+    {% elif block.polymorphic_ctype.model == 'dividerblock' %}
+        <hr/>
+    {% elif block.polymorphic_ctype.model == 'imageblock' %}
+        <section class="codeExample">
+            <img src="{{block.image.url}}" alt=""/>
+        </section>
+    {% elif block.polymorphic_ctype.model == 'linkblock' %}
+        <div class="lessons_designation">
+                <div class="nav_lesson">
+                    <img src="{{block.page_link.icon.url}}" alt=""/>
+                    <p>{{block.page_link.name}}</p>
+                </div>
+        </div>
     {% endif%}
-    <h3>{{block.text}}</h3>
-    <h3>Переменные, оператор присваивания, функции type</h3>
-    <div class="designation">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="10"
-                height="81"
-                viewBox="0 0 4 81"
-                fill="none"
-        >
-            <path
-                    d="M2 2L2 79"
-                    stroke="white"
-                    stroke-width="4"
-                    stroke-linecap="round"
-            />
-        </svg>
-        <p>
-            Переменная - это выделенная область в оперативной памяти, которая
-            хранит в себе какое либо значение. К данному значению можно обращать
-            по имени переменной. Пример объявления переменной:
-        </p>
-    </div>
-    <div class="example_designation">
-        <p>name = “Коля”</p>
-
-        <p>операнд-слева = операнд-справа</p>
-    </div>
-
-    <div class="explanation_designation">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="36"
-                viewBox="0 0 11 18"
-                fill="none"
-        >
-            <path
-                    d="M5.5 0C2.46766 0 0 2.43465 0 5.42666C0 6.54866 0.344668 7.62666 0.997345 8.54333C1.86999 9.77165 2.33199 11.1943 2.33199 12.65V12.6537H8.66801V12.65C8.66801 11.1943 9.13001 9.77165 10.0063 8.54333C10.6553 7.62666 11 6.54866 11 5.42666C11 2.43465 8.53234 0 5.5 0Z"
-                    fill="#FFF598"
-            />
-            <path
-                    d="M8.66755 13.387H2.33154V14.3367H8.66755V13.387Z"
-                    fill="#FFF598"
-            />
-            <path
-                    d="M2.33154 15.6383C2.33154 16.2543 2.83387 16.7567 3.45354 16.7567H3.95223C4.25654 17.27 4.85054 17.6 5.49955 17.6C6.14856 17.6 6.74255 17.27 7.04689 16.7567H7.54555C8.16522 16.7567 8.66755 16.2543 8.66755 15.6383V15.07H2.33154V15.6383Z"
-                    fill="#FFF598"
-            />
-        </svg>
-        <p>
-            Если попытаться вызвать переменную, которая не определена, то выдаст
-            ошибку. То есть, перед тем как использовать переменную, её нужно
-            определить.
-        </p>
-    </div>
-    <hr/>
-
-    <div class="example_designation">
-        <p>name = "Коля"</p>
-        <p>name = “Петя”</p>
-    </div>
-    <p>
-        Здесь мы изменили значение переменной name. При этом первое значение из
-        программы удалилось.
-    </p>
-
-    <div class="lessons_designation">
-        <div class="nav_lesson">
-            <img src="{% static '/assets/2basics.svg' %}" alt=""/>
-            <p>Урок 2. Переменные</p>
-        </div>
-
-        <div class="nav_lesson">
-            <img src="{% static '/assets/2basics.svg' %}" alt=""/>
-            <p>Урок 2. Переменные</p>
-        </div>
-
-        <div class="nav_lesson">
-            <img src="{% static '/assets/2basics.svg' %}" alt=""/>
-            <p>Урок 2. Переменные</p>
-        </div>
-    </div>
-
-    <section class="codeExample">
-        <img src="{% static '/assets/codeEx.png' %}" alt=""/>
-    </section>
-    {% endfor %}
-    <button type="submit" class="btnQuestion">Оставить вопрос</button>
-    <div class="sendRequestBlock">
-        <!-- <input type="text" class="inputQuestion" /> -->
-        <textarea
-                name=""
-                id=""
-                cols="30"
-                rows="10"
-                class="inputQuestion"
-        ></textarea>
-        <img src="{% static '/assets/iconSend.svg' %} alt="" / style="width: 20px; height:
-        16px;" class="iconSend">
-    </div>
+    {%endfor%}
+<!--    <button type="submit" class="btnQuestion">Оставить вопрос</button>-->
+<!--    <div class="sendRequestBlock">-->
+<!--        &lt;!&ndash; <input type="text" class="inputQuestion" /> &ndash;&gt;-->
+<!--        <textarea-->
+<!--                name=""-->
+<!--                id=""-->
+<!--                cols="30"-->
+<!--                rows="10"-->
+<!--                class="inputQuestion"-->
+<!--        ></textarea>-->
+<!--        <img src="{% static '/assets/iconSend.svg' %} alt="" / style="width: 20px; height:-->
+<!--        16px;" class="iconSend">-->
+<!--    </div>-->
 </main>
 <script src="{% static '/js/colorIntrod.js' %}"></script>
 {% endblock %}
