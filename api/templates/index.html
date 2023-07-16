@@ -34,17 +34,17 @@
                 <div class="coursesBlocks">
                     {% for page in pages %}
                         {% if page.name == 'Python основы' %}
-                            <a href="{% url 'basic' %}" class="courseBlock">
+                            <a href="{% url 'basic' page.id %}" class="courseBlock">
                                 {% include 'pages/python_basic.html' %}
                                 <h3>{{ page.name }}</h3>
                             </a>
                         {% elif page.name == 'Python ООП' %}
-                            <a href="{% url 'basic' %}" class="courseBlock">
+                            <a href="{% url 'basic' page.id %}" class="courseBlock">
                                 {% include 'pages/python_oop.html' %}
                                 <h3>{{ page.name }}</h3>
                             </a>
                         {% elif page.name == 'Django' %}
-                            <a href="{% url 'basic' %}" class="courseBlock">
+                            <a href="{% url 'basic' page.id %}" class="courseBlock">
                                 {% include 'pages/django.html' %}
                                 <h3>{{ page.name }}</h3>
                             </a>
