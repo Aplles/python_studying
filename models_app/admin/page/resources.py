@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from models_app.models import Page
+from models_app.models import Page, ImageBlock, DividerBlock
 from models_app.models import TextBlock
 from models_app.models import CalloutBlock
 from models_app.models import LinkBlock
@@ -22,10 +22,22 @@ class LinkBlockInline(admin.TabularInline):
     fk_name = "page"
 
 
+class ImageBlockInline(admin.TabularInline):
+    model = ImageBlock
+    extra = 0
+
+
+class DividerBlockInline(admin.TabularInline):
+    model = DividerBlock
+    extra = 0
+
+
 @admin.register(Page)
 class PageAdmin(admin.ModelAdmin):
     inlines = [
         TextBlockInline,
         CalloutBlockInline,
-        LinkBlockInline
+        LinkBlockInline,
+        DividerBlockInline,
+        ImageBlockInline
     ]

@@ -29,7 +29,8 @@ class IntroductionView(View):
     def get(self, request, *args, **kwargs):
         outcome = ServiceOutcome(GetThemeService, kwargs)
         return render(request, 'introduction.html', context={
-            'theme': outcome.result
+            'theme': outcome.result,
+            'blocks': outcome.result.blocks.all().order_by('position')
         })
 
 
