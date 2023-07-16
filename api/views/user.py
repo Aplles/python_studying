@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.views import View
 from service_objects.services import ServiceOutcome
 
+from api.services.user.create import UserCreateService
 from api.services.user.login import UserLoginService
 from models_app.models import Page
 
@@ -29,4 +30,17 @@ class UserLoginView(View):
         return render(request, 'index.html', context={
             'page': page,
             'pages': pages,
+        })
+
+
+class UserRenderCreateView(View):
+
+    def get(self, request, *args, **kwargs):
+        return render(request, 'create_user.html')
+
+    def post(self, request, *args, **kwargs):
+        outcome = ServiceOutcome(UserCreateService, kwargs)
+        return render(request, 'create_user.html', context={
+            'username': outcome.result['username'],
+            'password': outcome.result['password']
         })

@@ -13,6 +13,7 @@
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
                 <a href="{% url 'constructor' %}">Конструктор</a>
+                <a href="{% url 'user' %}">Создать пользователя</a>
             {% endif %}
             <a href="{% url 'logout' %}">Выйти</a>
 
