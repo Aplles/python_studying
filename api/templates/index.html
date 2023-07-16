@@ -1,136 +1,123 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-  </head>
-  <body>
-    <header>
-      <a href="#" class="">Python studying</a>
-      <!-- <div class="searchEnter">
-        <div class="search">
-          <img src="./assets/search.svg" alt="search" />
-          <p>Поиск</p>
-        </div>
-        <span>|</span> -->
-      <button class="enter">Войти</button>
-      <!-- </div> -->
-    </header>
+{% extends 'base.html' %}
+{% load static %}
 
-    <main>
-      <div class="mainInfo">
-        <img src="./assets/pitonGlav.svg" alt="" />
-        <hr />
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<header>
+    <a href="#" class="">Python studying</a>
+    <!-- <div class="searchEnter">
+      <div class="search">
+        <img src="./assets/search.svg" alt="search" />
+        <p>Поиск</p>
+      </div>
+      <span>|</span> -->
+    <button class="enter">Войти</button>
+</header>
+
+<main>
+    <div class="mainInfo">
+        <img src="./assets/pitonGlav.svg" alt=""/>
+        <hr/>
 
         <div class="discriptionMain">
-          <div class="captionMain">
-            <img src="./assets/iconGlav.svg" alt="" / >
-            <h1 class="pageTitle">Python и разработка</h1>
-          </div>
-          <div class="blockDesc">
-            <p>
-              Приветствуем вас в мире Python! Здесь вы найдете все необходимые
-              ресурсы и материалы для успешного изучения <br />
-              языка программирования
-            </p>
-          </div>
-          <hr />
-          <div class="coursesBlocks">
-            <a href="./basics.html" class="courseBlock">
-              <div class="courseDesc">
-                <div class="textDesc">
-                  list_nums = [<span class="blue">1</span>
-                  <span class="orange">,</span><span class="blue">2</span>
-                  <span class="orange">,</span><span class="blue">3</span>
-                  <span class="orange">,</span><span class="blue">4</span>
-                  <span class="orange">,</span><span class="blue">5</span>]
-                  <br />
-                  <span class="orange">for</span> index
-                  <span class="orange">,</span> num
-                  <span class="orange">in</span>
-                  <span class="purple">enumerate</span>(list_nums):
-                  <br />
-                  <span class="purple" style="margin-left: 25px">print</span
-                  >(<span class="green">f'</span
-                  ><span class="orange">{</span>index +
-                  <span class="blue">1</span><span class="orange">}</span>.
-                  <span class="orange">{</span>num<span class="orange">}</span
-                  ><span class="green">'</span>)
-                </div>
-              </div>
+            <div class="captionMain">
+                <img src="./assets/iconGlav.svg" alt="" / >
+                <h1 class="pageTitle">Python и разработка</h1>
+            </div>
+            <div class="blockDesc">
+                <p>
+                    Приветствуем вас в мире Python! Здесь вы найдете все необходимые
+                    ресурсы и материалы для успешного изучения <br/>
+                    языка программирования
+                </p>
+            </div>
+            <hr/>
+            <div class="coursesBlocks">
+                <a href="./basics.html" class="courseBlock">
+                    <div class="courseDesc">
+                        <div class="textDesc">
+                            list_nums = [<span class="blue">1</span>
+                            <span class="orange">,</span><span class="blue">2</span>
+                            <span class="orange">,</span><span class="blue">3</span>
+                            <span class="orange">,</span><span class="blue">4</span>
+                            <span class="orange">,</span><span class="blue">5</span>]
+                            <br/>
+                            <span class="orange">for</span> index
+                            <span class="orange">,</span> num
+                            <span class="orange">in</span>
+                            <span class="purple">enumerate</span>(list_nums):
+                            <br/>
+                            <span class="purple" style="margin-left: 25px">print</span
+                            >(<span class="green">f'</span
+                        ><span class="orange">{</span>index +
+                            <span class="blue">1</span><span class="orange">}</span>.
+                            <span class="orange">{</span>num<span class="orange">}</span
+                        ><span class="green">'</span>)
+                        </div>
+                    </div>
 
-              <h3>Python-основы</h3>
-            </a>
+                    <h3>Python-основы</h3>
+                </a>
 
-            <a href="#" class="courseBlock">
-              <div class="courseDesc">
-                <div class="textDesc">
-                  <span class="orange">class</span> Coord: <br />
-                  <span class="orange" style="margin-left: 15px">def</span>
-                  <span class="crimson">__init__</span>(<span class="pink"
-                    >self</span
-                  ><span class="orange">,</span> x<span class="orange">,</span>
-                  y<span class="orange">,</span> z): <br />
-                  <span class="pink" style="margin-left: 40px">self</span>.x = x
-                  <br />
-                  <span class="pink" style="margin-left: 40px">self</span>.y = y
-                  <br />
-                  <span class="pink" style="margin-left: 40px">self</span>.z = z
-                </div>
-              </div>
-              <h3>Python-ООП</h3>
-            </a>
+                <a href="#" class="courseBlock">
+                    <div class="courseDesc">
+                        <div class="textDesc">
+                            <span class="orange">class</span> Coord: <br/>
+                            <span class="orange" style="margin-left: 15px">def</span>
+                            <span class="crimson">__init__</span>(<span class="pink"
+                        >self</span
+                        ><span class="orange">,</span> x<span class="orange">,</span>
+                            y<span class="orange">,</span> z): <br/>
+                            <span class="pink" style="margin-left: 40px">self</span>.x = x
+                            <br/>
+                            <span class="pink" style="margin-left: 40px">self</span>.y = y
+                            <br/>
+                            <span class="pink" style="margin-left: 40px">self</span>.z = z
+                        </div>
+                    </div>
+                    <h3>Python-ООП</h3>
+                </a>
 
-            <a href="#" class="courseBlock">
-              <div class="courseDesc">
-                <div class="textDesc">
-                  <span class="orange">сlass</span> ProductView(ListView):
-                  <br />
-                  <span style="margin-left: 15px">model = Product <br /></span>
-                  <span style="margin-left: 15px"
-                    >template_name = <span class="green">'index.html'</span>
+                <a href="#" class="courseBlock">
+                    <div class="courseDesc">
+                        <div class="textDesc">
+                            <span class="orange">сlass</span> ProductView(ListView):
+                            <br/>
+                            <span style="margin-left: 15px">model = Product <br/></span>
+                            <span style="margin-left: 15px"
+                            >template_name = <span class="green">'index.html'</span>
                     <br
-                  /></span>
-                  <span style="margin-left: 15px"
-                    >context_object_name =
+                    /></span>
+                            <span style="margin-left: 15px"
+                            >context_object_name =
                     <span class="green">'produсts'</span> <br
-                  /></span>
-                  <span style="margin-left: 15px"
-                    >ordering = [<span class="green">'id'</span>] <br
-                  /></span>
-                </div>
-              </div>
-              <h3>Django</h3>
-            </a>
-          </div>
+                                /></span>
+                            <span style="margin-left: 15px"
+                            >ordering = [<span class="green">'id'</span>] <br
+                            /></span>
+                        </div>
+                    </div>
+                    <h3>Django</h3>
+                </a>
+            </div>
         </div>
-      </div>
-      <section class="wrapper">
+    </div>
+    <section class="wrapper">
         <form action="" class="signInForm">
-          <h1>Авторизация</h1>
-          <div class="inputBtn_signInForm">
-            <input type="text" / placeholder="Логин"> <input type="password" /
-            placeholder="Пароль">
-            <button type="submit" class="enter_signInForm">Войти</button>
-          </div>
+            <h1>Авторизация</h1>
+            <div class="inputBtn_signInForm">
+                <input type="text" / placeholder="Логин"> <input type="password" /
+                placeholder="Пароль">
+                <button type="submit" class="enter_signInForm">Войти</button>
+            </div>
         </form>
-      </section>
-    </main>
-    <footer>
-      <h3>Индивидуальные занятия</h3>
-      <img src="./assets/footerInd.svg" alt="" />
-    </footer>
-  </body>
-  <script src="./js/enter.js"></script>
-</html>
+    </section>
+</main>
+<!--<footer>-->
+<!--    <h3>Индивидуальные занятия</h3>-->
+<!--    <img src="./assets/footerInd.svg" alt=""/>-->
+<!--</footer>-->
+<script src="{% static '/js/enter.js' %}"></script>
+{% endblock %}
+

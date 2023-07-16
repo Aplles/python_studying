@@ -1,60 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/basics.css" />
-    <link rel="stylesheet" href="./css/introduction.css" />
-    <link rel="stylesheet" href="./css/constructor.css" />
+{% extends 'base.html' %}
+{% load static %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-    <script src="js/enter.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="linkblock">
+{% block title %}Конструктор{% endblock %}
+
+{% block content %}
+<header>
+    <div class="linkblock">
         <a href="./index.html" class="">Python и разработка</a> /
         <a href=""> Конструктор</a>
-      </div>
+    </div>
 
-      <button class="enter">Выйти</button>
-    </header>
+    <button class="enter">Выйти</button>
+</header>
 
-    <main class="mainSize">
-      <h1 class="pageTitle">Конструктор конспекта</h1>
-      <hr />
-      <div id="blocks-container"></div>
-      <div class="btnBlock">
+<main class="mainSize">
+    <h1 class="pageTitle">Конструктор конспекта</h1>
+    <hr/>
+    <div id="blocks-container"></div>
+    <div class="btnBlock">
         <button onclick="createBlock()">Блок с текстом</button>
         <button onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
         <button onclick="createBlock_ExplanationDesignation()">
-          Блок с икнокой и текстом
+            Блок с икнокой и текстом
         </button>
         <button onclick="createBlock_link()">Блок с ссылкой</button>
         <button onclick="createBlock_ImageBlock()">Блок с картинкой</button>
         <button onclick="createBlock_TextBlock_Line()">
-          Блок с чертой слева (Есть на скринах)
+            Блок с чертой слева (Есть на скринах)
         </button>
         <button onclick="createBlock_hrBlock()">
-          Блок с разделяющей линией
+            Блок с разделяющей линией
         </button>
         <button onclick="createBlock_H1()">
-          Блок с заголовком (Большой текст)
+            Блок с заголовком (Большой текст)
         </button>
         <button type="submit" onclick="assignIDs()">Сохранить</button>
         <!-- <button onclick=" saveInputs()">Сохранить Input</button> -->
-      </div>
-    </main>
-  </body>
-  <script src="./js/constructor.js"></script>
-  <script src="./js/colorIntrod.js"></script>
-</html>
+    </div>
+</main>
+<script src="./js/constructor.js"></script>
+<script src="./js/colorIntrod.js"></script>
+{% endblock %}

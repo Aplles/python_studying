@@ -1,142 +1,128 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/header.css" />
-    <link rel="stylesheet" href="./css/basics.css" />
-    <link rel="stylesheet" href="./css/introduction.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@600;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Document</title>
-    <script src="js/colorIntrod.js"></script>
-  </head>
-  <body>
-    <header>
-      <div class="linkblock">
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Конспект{% endblock %}
+
+{% block content %}
+<script src="js/colorIntrod.js"></script>
+<header>
+    <div class="linkblock">
         <a href="./index.html" class="">Python и разработка</a> /
         <a href="">Python-основы</a> /
         <a href="">Введение в написание программ</a>
-      </div>
+    </div>
 
-      <button class="enter">Выйти</button>
-    </header>
-    <main class="mainSize">
-      <img src="./assets/1basics.svg" alt="" / style="width: 100px; height:
-      120px;">
-      <h1 class="pageTitle">Введение в написание программ</h1>
+    <button class="enter">Выйти</button>
+</header>
+<main class="mainSize">
+    <img src="./assets/1basics.svg" alt="" / style="width: 100px; height:
+    120px;">
+    <h1 class="pageTitle">Введение в написание программ</h1>
 
-      <div class="searchBasics">
-        <input type="text" placeholder="Поиск..." />
+    <div class="searchBasics">
+        <input type="text" placeholder="Поиск..."/>
         <button class="searchBtn">Найти</button>
-      </div>
-      <hr />
-      <h3>Переменные, оператор присваивания, функции type</h3>
-      <div class="designation">
+    </div>
+    <hr/>
+    <h3>Переменные, оператор присваивания, функции type</h3>
+    <div class="designation">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="10"
-          height="81"
-          viewBox="0 0 4 81"
-          fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                width="10"
+                height="81"
+                viewBox="0 0 4 81"
+                fill="none"
         >
-          <path
-            d="M2 2L2 79"
-            stroke="white"
-            stroke-width="4"
-            stroke-linecap="round"
-          />
+            <path
+                    d="M2 2L2 79"
+                    stroke="white"
+                    stroke-width="4"
+                    stroke-linecap="round"
+            />
         </svg>
         <p>
-          Переменная - это выделенная область в оперативной памяти, которая
-          хранит в себе какое либо значение. К данному значению можно обращать
-          по имени переменной. Пример объявления переменной:
+            Переменная - это выделенная область в оперативной памяти, которая
+            хранит в себе какое либо значение. К данному значению можно обращать
+            по имени переменной. Пример объявления переменной:
         </p>
-      </div>
-      <div class="example_designation">
+    </div>
+    <div class="example_designation">
         <p>name = “Коля”</p>
 
         <p>операнд-слева = операнд-справа</p>
-      </div>
+    </div>
 
-      <div class="explanation_designation">
+    <div class="explanation_designation">
         <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="22"
-          height="36"
-          viewBox="0 0 11 18"
-          fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="36"
+                viewBox="0 0 11 18"
+                fill="none"
         >
-          <path
-            d="M5.5 0C2.46766 0 0 2.43465 0 5.42666C0 6.54866 0.344668 7.62666 0.997345 8.54333C1.86999 9.77165 2.33199 11.1943 2.33199 12.65V12.6537H8.66801V12.65C8.66801 11.1943 9.13001 9.77165 10.0063 8.54333C10.6553 7.62666 11 6.54866 11 5.42666C11 2.43465 8.53234 0 5.5 0Z"
-            fill="#FFF598"
-          />
-          <path
-            d="M8.66755 13.387H2.33154V14.3367H8.66755V13.387Z"
-            fill="#FFF598"
-          />
-          <path
-            d="M2.33154 15.6383C2.33154 16.2543 2.83387 16.7567 3.45354 16.7567H3.95223C4.25654 17.27 4.85054 17.6 5.49955 17.6C6.14856 17.6 6.74255 17.27 7.04689 16.7567H7.54555C8.16522 16.7567 8.66755 16.2543 8.66755 15.6383V15.07H2.33154V15.6383Z"
-            fill="#FFF598"
-          />
+            <path
+                    d="M5.5 0C2.46766 0 0 2.43465 0 5.42666C0 6.54866 0.344668 7.62666 0.997345 8.54333C1.86999 9.77165 2.33199 11.1943 2.33199 12.65V12.6537H8.66801V12.65C8.66801 11.1943 9.13001 9.77165 10.0063 8.54333C10.6553 7.62666 11 6.54866 11 5.42666C11 2.43465 8.53234 0 5.5 0Z"
+                    fill="#FFF598"
+            />
+            <path
+                    d="M8.66755 13.387H2.33154V14.3367H8.66755V13.387Z"
+                    fill="#FFF598"
+            />
+            <path
+                    d="M2.33154 15.6383C2.33154 16.2543 2.83387 16.7567 3.45354 16.7567H3.95223C4.25654 17.27 4.85054 17.6 5.49955 17.6C6.14856 17.6 6.74255 17.27 7.04689 16.7567H7.54555C8.16522 16.7567 8.66755 16.2543 8.66755 15.6383V15.07H2.33154V15.6383Z"
+                    fill="#FFF598"
+            />
         </svg>
         <p>
-          Если попытаться вызвать переменную, которая не определена, то выдаст
-          ошибку. То есть, перед тем как использовать переменную, её нужно
-          определить.
+            Если попытаться вызвать переменную, которая не определена, то выдаст
+            ошибку. То есть, перед тем как использовать переменную, её нужно
+            определить.
         </p>
-      </div>
-      <hr />
+    </div>
+    <hr/>
 
-      <div class="example_designation">
+    <div class="example_designation">
         <p>name = "Коля"</p>
         <p>name = “Петя”</p>
-      </div>
-      <p>
+    </div>
+    <p>
         Здесь мы изменили значение переменной name. При этом первое значение из
         программы удалилось.
-      </p>
+    </p>
 
-      <div class="lessons_designation">
+    <div class="lessons_designation">
         <div class="nav_lesson">
-          <img src="./assets/2basics.svg" alt="" />
-          <p>Урок 2. Переменные</p>
+            <img src="./assets/2basics.svg" alt=""/>
+            <p>Урок 2. Переменные</p>
         </div>
 
         <div class="nav_lesson">
-          <img src="./assets/2basics.svg" alt="" />
-          <p>Урок 2. Переменные</p>
+            <img src="./assets/2basics.svg" alt=""/>
+            <p>Урок 2. Переменные</p>
         </div>
 
         <div class="nav_lesson">
-          <img src="./assets/2basics.svg" alt="" />
-          <p>Урок 2. Переменные</p>
+            <img src="./assets/2basics.svg" alt=""/>
+            <p>Урок 2. Переменные</p>
         </div>
-      </div>
+    </div>
 
-      <section class="codeExample">
-        <img src="./assets/codeEx.png" alt="" />
-      </section>
-      <button type="submit" class="btnQuestion">Оставить вопрос</button>
-      <div class="sendRequestBlock">
+    <section class="codeExample">
+        <img src="./assets/codeEx.png" alt=""/>
+    </section>
+    <button type="submit" class="btnQuestion">Оставить вопрос</button>
+    <div class="sendRequestBlock">
         <!-- <input type="text" class="inputQuestion" /> -->
         <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="10"
-          class="inputQuestion"
+                name=""
+                id=""
+                cols="30"
+                rows="10"
+                class="inputQuestion"
         ></textarea>
         <img src="./assets/iconSend.svg" alt="" / style="width: 20px; height:
         16px;" class="iconSend">
-      </div>
-    </main>
-    <script src="./js/colorIntrod.js"></script>
-  </body>
-</html>
+    </div>
+</main>
+<script src="./js/colorIntrod.js"></script>
+{% endblock %}
