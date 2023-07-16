@@ -2,15 +2,27 @@ from service_objects.fields import ModelField
 from service_objects.services import ServiceWithResult
 
 from models_app.models import Page
+from models_app.models import DividerBlock
 
 
 class DividerBlockCreateService(ServiceWithResult):
     page = ModelField(Page)
 
     def process(self):
+        self._create()
         return self
 
     def _create(self):
         if self.data.get("DividerBlock_new", None):
-            for divider_block_index in self.data.get("DividerBlock_new"):
-                pass
+            for link_block_index in range(int(self.data.get("DividerBlock_new"))):
+                DividerBlock.objects.create(
+                    position=next(self._positions()),
+                    page=self.cleaned_data['page']
+                )
+
+    def _positions(self):
+        for item in [
+            key for key in self.data.keys()
+            if "DividerBlock" in key and key != "DividerBlock_new"
+        ]:
+            yield item.split("_")[1]

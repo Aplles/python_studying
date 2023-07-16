@@ -31,12 +31,10 @@ class FillPageService(ServiceWithResult):
         return Page.objects.get(id=self.data["page_id"])
 
     def _fill(self):
-        for block in self.data.keys():
-            type_block = block.split("_")[0]
-            if type_block in self.LIST_BLOCKS:
-                ServiceOutcome(
-                    self.LIST_BLOCKS[type_block],
-                    self.data.dict() | {
-                        "page": self._page
-                    },
-                )
+        for service in self.LIST_BLOCKS.values():
+            ServiceOutcome(
+                service,
+                self.data.dict() | {
+                    "page": self._page
+                },
+            )

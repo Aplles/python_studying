@@ -14,7 +14,14 @@ class LinkBlockCreateService(ServiceWithResult):
 
     def _create(self):
         if self.data.get("LinkBlock_new", None):
-            for link_block_index in self.data.get("LinkBlock_new"):
+            for link_block_index in range(int(self.data.get("LinkBlock_new"))):
+                position = self._positions()
                 LinkBlock.objects.create(
-                    page_link=Page.objects.get(id=self.data.get(f"LinkBlock_{link_block_index}_text"))
+                    page_link=Page.objects.get(id=self.data.get(f"LinkBlock_{position}_text")),
+                    position=position,
+                    page=self.cleaned_data['page']
                 )
+
+    def _positions(self):
+        for item in [value for key, value in self.data.keys() if "LinkBlock" in key]:
+            yield item.split("_")[1]
