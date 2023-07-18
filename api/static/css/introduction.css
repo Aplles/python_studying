@@ -65,6 +65,10 @@
   background: #4e4e4e;
 }
 
+.codeExample img{
+  width: 100%;
+}
+
 .btnQuestion {
   border-radius: 7px;
   background: #4e4e4e;

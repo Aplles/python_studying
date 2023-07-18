@@ -104,7 +104,7 @@ function createBlock_TextBlock_Line() {
   var input = document.createElement("input");
   input.type = "text";
   input.classList.add("inputBtn");
-  input.name = "TextBlock_QUOTETEXT_код_text";
+  input.name = "TextBlock_QUOTETEXT_quote_text";
   var deleteButton = document.createElement("button");
   deleteButton.innerHTML = "Удалить";
   deleteButton.classList.add("dltBtn");
@@ -225,7 +225,6 @@ function createBlock_link() {
   divBlock.appendChild(lessons_designation);
   var navLesson_btn = document.createElement("button");
   navLesson_btn.innerHTML = "Добавить";
-  navLesson_btn.type = "button";
   navLesson_btn.classList.add("dltBtn");
   divBlock.appendChild(navLesson_btn);
 
@@ -369,6 +368,63 @@ function saveInputs() {
   var inputs = main.querySelectorAll("input");
   var count = 1;
 
+  // Создать 9 элементов input с типом hidden
+  for (var i = 0; i < 9; i++) {
+    var input = document.createElement("input");
+    input.type = "hidden";
+
+    // Задать value в зависимости от типа input
+    if (i === 0) {
+      input.value = main.querySelectorAll(
+        "input[name^='TextBlock_TEXT_']"
+      ).length;
+      input.name = "TextBlock_TEXT_new";
+    } else if (i === 1) {
+      input.value = main.querySelectorAll(
+        "input[name^='TextBlock_CODE_']"
+      ).length;
+      input.name = "TextBlock_CODE_new";
+    } else if (i === 2) {
+      input.value = main.querySelectorAll(
+        "input[name^='CalloutBlock_'][name$='_text']"
+      ).length;
+      input.name = "CalloutBlock_text_new";
+    } else if (i === 3) {
+      input.value = main.querySelectorAll(
+        "input[name^='CalloutBlock_'][name$='_image']"
+      ).length;
+      input.name = "CalloutBlock_image_new";
+    } else if (i === 4) {
+      input.value = main.querySelectorAll(
+        "input[name^='LinkBlock_'][name$='_text']"
+      ).length;
+      input.name = "LinkBlock_text_new";
+    } else if (i === 5) {
+      input.value = main.querySelectorAll(
+        "input[name^='ImageBlock_'][name$='_image']"
+      ).length;
+      input.name = "ImageBlock_image_new";
+    } else if (i === 6) {
+      input.value = main.querySelectorAll(
+        "input[name^='TextBlock_QUOTETEXT_']"
+      ).length;
+      input.name = "TextBlock_QUOTETEXT_new";
+    } else if (i === 7) {
+      input.value = main.querySelectorAll(
+        "input[name^='DividerBlock_']"
+      ).length;
+      input.name = "DividerBlock_new";
+    } else if (i === 8) {
+      input.value = main.querySelectorAll(
+        "input[name^='TextBlock_HEADERTEXT_']"
+      ).length;
+      input.name = "TextBlock_HEADERTEXT_new";
+    }
+
+    // Добавить созданный элемент input в main
+    main.appendChild(input);
+  }
+
   inputs.forEach(function (input) {
     var name = input.name.split("_");
     var type = name[0];
@@ -411,35 +467,7 @@ function saveInputs() {
 
     input.name = newName;
   });
-
-  // Создать скрытые поля с информацией о количестве каждого типа input
-  var hiddenInputs = [];
-  var types = [
-    "TextBlock",
-    "CalloutBlock",
-    "LinkBlock",
-    "ImageBlock",
-    "DividerBlock",
-  ];
-
-  types.forEach(function (type) {
-    var typeCount = main.querySelectorAll(`input[name^="${type}_"]`).length;
-
-    // for (var i = 0; i < 5; i++) {
-    var hiddenInput = document.createElement("input");
-    hiddenInput.type = "hidden";
-    hiddenInput.value = typeCount;
-    hiddenInput.name = `${type}_new`;
-    hiddenInputs.push(hiddenInput);
-    // }
-  });
-
-  // Добавляем 5 скрытых полей после блока main
-  hiddenInputs.forEach(function (hiddenInput) {
-    main.parentNode.insertBefore(hiddenInput, main.nextSibling);
-  });
 }
-
 //id
 function assignIDs() {
   var blocks = document.getElementsByClassName("divBlock");

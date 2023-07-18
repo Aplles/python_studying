@@ -1,3 +1,4 @@
+from django.contrib.contenttypes.models import ContentType
 from service_objects.fields import ModelField
 from service_objects.services import ServiceWithResult
 
@@ -17,6 +18,7 @@ class DividerBlockCreateService(ServiceWithResult):
             for link_block_index in range(int(self.data.get("DividerBlock_new"))):
                 DividerBlock.objects.create(
                     position=next(self._positions()),
+                    polymorphic_ctype_id=ContentType.objects.get_for_model(DividerBlock).id,
                     page=self.cleaned_data['page']
                 )
 

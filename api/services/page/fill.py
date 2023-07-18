@@ -36,5 +36,5 @@ class FillPageService(ServiceWithResult):
                 service,
                 self.data.dict() | {
                     "page": self._page
-                },
+                }, self.files
             )
