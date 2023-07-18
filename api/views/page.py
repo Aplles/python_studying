@@ -54,6 +54,7 @@ class ConstructorView(View):
 
     def post(self, request, *args, **kwargs):
         ServiceOutcome(FillPageService, request.POST, request.FILES)
+        print(request.POST.get("TextBlock_CODE_1_text"))
         return redirect("constructor")
 
 

@@ -20,7 +20,7 @@
         <button class="enter">Выйти</button>
     </header>
     <main class="mainSize">
-        <img src="{% static '/assets/1basics.svg' %}" alt="" / style="width: 100px; height:
+        <img src="{% static '/assets/1basics.svg' %}" alt="" style="width: 100px; height:
         120px;">
         <h1 class="pageTitle">{{ theme.name }}</h1>
 
@@ -39,7 +39,7 @@
                     </p>
                 {% elif block.type == 'CODE' %}
                     <div class="example_designation">
-                        <p>{{ block.text }}</p>
+                        <pre>{{ block.text|linebreaksbr  }}</pre>
                     </div>
                 {% elif block.type == 'HEADERTEXT' %}
                     <h3>{{ block.text }}</h3>

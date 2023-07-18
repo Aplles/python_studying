@@ -5,14 +5,17 @@
 
 .example_designation {
   width: 784px;
-  height: 100px;
   flex-shrink: 0;
   border-radius: 7px;
   background: #4e4e4e;
-  padding: 0px 47px;
+  padding: 26px 47px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+pre {
+  white-space: pre-wrap;
 }
 
 .explanation_designation {
@@ -131,4 +134,20 @@
 
 .orange-text {
   color: rgba(201, 119, 48, 1);
+}
+
+.purple-text {
+  color: #8e81dc;
+}
+
+.blue-text {
+  color: #5E92BA;
+}
+
+.purple-additional-text {
+  color: #af4ea4;
+}
+
+.yellow-text {
+  color: #efe50b;
 }

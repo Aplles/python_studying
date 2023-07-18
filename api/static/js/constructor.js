@@ -143,8 +143,8 @@ function createBlock_TextBlock_CODE() {
   divBlock.appendChild(block);
   block.appendChild(P);
   // Создаем input для ввода текста
-  var input = document.createElement("input");
-  input.type = "text";
+  var input = document.createElement("textarea");
+  // input.type = "text";
   input.classList.add("inputBtn");
   input.name = "TextBlock_CODE_код_text";
   var deleteButton = document.createElement("button");
@@ -366,7 +366,7 @@ function hideBtn() {
 
 function saveInputs() {
   var main = document.querySelector("main");
-  var inputs = main.querySelectorAll("input");
+  var inputs = main.querySelectorAll("input, textarea");
   var count = 1;
 
   // Создать 9 элементов input с типом hidden
@@ -382,9 +382,10 @@ function saveInputs() {
       input.name = "TextBlock_TEXT_new";
     } else if (i === 1) {
       input.value = main.querySelectorAll(
-        "input[name^='TextBlock_CODE_']"
+        "textarea[name^='TextBlock_CODE_']"
       ).length;
       input.name = "TextBlock_CODE_new";
+      console.log(input.value)
     } else if (i === 2) {
       input.value = main.querySelectorAll(
         "input[name^='CalloutBlock_'][name$='_text']"
