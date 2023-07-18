@@ -224,6 +224,7 @@ function createBlock_link() {
   lessons_designation.classList.add("lessons_designation");
   divBlock.appendChild(lessons_designation);
   var navLesson_btn = document.createElement("button");
+  navLesson_btn.type = "button";
   navLesson_btn.innerHTML = "Добавить";
   navLesson_btn.classList.add("dltBtn");
   divBlock.appendChild(navLesson_btn);
@@ -459,7 +460,7 @@ function saveInputs() {
       newName = "LinkBlock_" + divBlockId + "_text";
     } else if (type === "ImageBlock" && input.name.includes("_позиция_image")) {
       newName = "ImageBlock_" + divBlockId + "_image";
-    } else if (type === "TextBlock" && input.name.includes("_код_text")) {
+    } else if (type === "TextBlock" && input.name.includes("_quote_text")) {
       newName = "TextBlock_QUOTETEXT_" + divBlockId + "_text";
     } else if (type === "DividerBlock" && input.name.includes("_позиция_hr")) {
       newName = "DividerBlock_" + divBlockId;

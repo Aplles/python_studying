@@ -28,7 +28,7 @@ class TextBlock(Block):
     )
 
     def __str__(self):
-        return "Блок с текстом"
+        return f"Блок с текстом {self.type}"
 
     class Meta:
         db_table = "text_blocks"
