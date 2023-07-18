@@ -5,11 +5,11 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
-    <link rel="stylesheet" href="{% static '/css/introduction.css'" %}" />
+    <link rel="stylesheet" href="{% static '/css/introduction.css' %}"/>
 {% endblock %}
 
 {% block content %}
-<script src="{% static 'js/colorIntrod.js' %}"></script>
+    <script src="{% static 'js/colorIntrod.js' %}"></script>
     <header>
         <div class="linkblock">
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
