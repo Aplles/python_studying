@@ -14,7 +14,7 @@
         <div class="linkblock">
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
             <a href="{% url 'basic' theme.parent_page.id %}">{{ theme.parent_page.name }}</a> /
-            <a href="">{{ theme.name }}</a>
+            <a href="{% url 'introduction' theme.id %}">{{ theme.name }}</a>
         </div>
 
         <button class="enter">Выйти</button>
@@ -23,13 +23,13 @@
         <img src="{% static '/assets/1basics.svg' %}" alt="" style="width: 100px; height:
         120px;">
         <h1 class="pageTitle">{{ theme.name }}</h1>
-
         <div class="searchBasics">
             <form action="{% url 'theme_search' theme.id %}" method="get">
                 <input type="text" name="search" placeholder="Поиск..."/>
                 <button type="submit" class="searchBtn">Найти</button>
             </form>
         </div>
+        <a href="{% url 'introduction' theme.id %}">Сбросить поиск</a>
         <hr/>
         {% for block in blocks %}
             {% if block.polymorphic_ctype.model == 'textblock' %}

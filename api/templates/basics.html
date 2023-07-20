@@ -19,13 +19,13 @@
         <img src="{{ page.icon.url }}" alt="" / style="width: 100px; height:
         120px;">
         <h1 class="pageTitle">{{ page.name }}</h1>
-
         <div class="searchBasics">
             <form action="{% url 'search' page.id %}" method="get">
                 <input type="text" name="search" placeholder="Поиск..."/>
                 <button type="submit" class="searchBtn">Найти</button>
             </form>
         </div>
+        <a href="{% url 'basic' page.id %}">Сбросить поиск</a>
         <hr/>
         {% for theme in themes %}
             {% if theme.lock %}
