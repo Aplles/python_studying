@@ -78,12 +78,14 @@
                     <img src="{{ block.image.url }}" alt=""/>
                 </section>
             {% elif block.polymorphic_ctype.model == 'linkblock' %}
-                <div class="lessons_designation">
-                    <div class="nav_lesson">
-                        <img src="{{ block.page_link.icon.url }}" alt=""/>
-                        <p>{{ block.page_link.name }}</p>
+                 <a href="{% url 'introduction' block.page_link.id %}">
+                     <div class="lessons_designation">
+                        <div class="nav_lesson">
+                            <img src="{{ block.page_link.icon.url }}" alt=""/>
+                            <p>{{ block.page_link.name }}</p>
+                        </div>
                     </div>
-                </div>
+                 </a>
             {% endif %}
         {% endfor %}
         <!--    <button type="submit" class="btnQuestion">Оставить вопрос</button>-->
