@@ -408,7 +408,7 @@
   .example_designation {
     padding: 15px 24px;
   }
-  .example_designation p {
+  .example_designation pre {
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
@@ -648,7 +648,7 @@
   .example_designation {
     padding: 13px 14px;
   }
-  .example_designation p {
+  .example_designation pre {
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
