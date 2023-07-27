@@ -17,6 +17,8 @@ class Page(models.Model):
         blank=True,
         null=True
     )
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
 
     def __str__(self):
         return f'{self.id} {self.name}'
