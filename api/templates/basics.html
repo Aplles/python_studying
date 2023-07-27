@@ -14,7 +14,9 @@
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
             <a href="">{{ page.name }}</a>
         </div>
-        <button class="enter">Выйти</button>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Выйти</a>
+        {% endif %}
     </header>
     <main>
         <img src="{{ page.icon.url }}" alt="" style="width: 144px; height:144px;" class="basicsMainImg">

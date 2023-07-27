@@ -70,19 +70,17 @@
                 </div>
             </div>
         </div>
-        {% if not request.user.is_authenticated %}
-            <section class="wrapper">
-                <form action="{% url 'login' %}" class="signInForm" method="post">
-                    {% csrf_token %}
-                    <h1>Авторизация</h1>
-                    <div class="inputBtn_signInForm">
-                        <input type="text" placeholder="Логин" name="username">
-                        <input type="password" placeholder="Пароль" name="password">
-                        <button type="submit" class="enter_signInForm">Войти</button>
-                    </div>
-                </form>
-            </section>
-        {% endif %}
+        <section class="wrapper">
+            <form action="{% url 'login' %}" class="signInForm" method="post">
+                {% csrf_token %}
+                <h1>Авторизация</h1>
+                <div class="inputBtn_signInForm">
+                    <input type="text" placeholder="Логин" name="username">
+                    <input type="password" placeholder="Пароль" name="password">
+                    <button type="submit" class="enter_signInForm">Войти</button>
+                </div>
+            </form>
+        </section>
     </main>
     <!--<footer>-->
     <!--    <h3>Индивидуальные занятия</h3>-->
