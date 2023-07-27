@@ -3,12 +3,13 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/basics.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/adaptive.css' %}"/>
 {% endblock %}
 
 {% block title %}Список конспектов{% endblock %}
 
 {% block content %}
-    <header>
+    <header class="basicsHead">
         <div class="linkblock">
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
             <a href="">{{ page.name }}</a>
@@ -16,8 +17,7 @@
         <button class="enter">Выйти</button>
     </header>
     <main>
-        <img src="{{ page.icon.url }}" alt="" / style="width: 100px; height:
-        120px;">
+        <img src="{{ page.icon.url }}" alt="" style="width: 100px; height:120px;" class="basicsMainImg">
         <h1 class="pageTitle">{{ page.name }}</h1>
 
         <div class="searchBasics">

@@ -1,0 +1,708 @@
+@media screen and (max-width: 1000px) {
+  header,
+  main,
+  footer {
+    width: 760px;
+  }
+  p br {
+    display: none;
+  }
+  .blockDesc {
+    padding: 28px 45px;
+    margin-bottom: 40px;
+    text-align: justify;
+  }
+
+  .courseDesc {
+    width: 210px;
+    height: 80px;
+    margin-bottom: 15px;
+  }
+  .coursesBlocks {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .courseBlock {
+    width: 31.5%;
+    height: 144px;
+    padding: 15px 15px 15px 15px;
+    background-color: rgba(78, 78, 78, 1);
+    border-radius: 7px;
+    text-align: left;
+    font-size: 18px;
+  }
+  .courseBlock h3 {
+    font-size: 18px;
+  }
+
+  .textDesc {
+    font-size: 10px;
+  }
+  footer h3 {
+    font-size: 18px;
+  }
+  footer img {
+    width: 396px;
+    height: 214px;
+  }
+
+  .wrapper {
+    width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .activet {
+    width: 700px;
+  }
+
+  .searchBasics input,
+  .theme {
+    width: 760px;
+  }
+  .example_designation {
+    width: auto;
+    height: auto;
+    padding: 26px 15px 26px 47px;
+  }
+  .explanation_designation {
+    width: auto;
+    height: auto;
+  }
+  .lessons_designation {
+    gap: 19.35px;
+  }
+  .nav_lesson {
+    width: auto;
+  }
+  .codeExample img {
+    width: 740px;
+    height: 697px;
+  }
+  .btnQuestion {
+    padding: 15px 275px;
+  }
+  .sendRequestBlock {
+    width: 760px;
+    height: 104px;
+  }
+  .inputQuestion {
+    width: 760px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  header,
+  main,
+  footer {
+    width: 568px;
+  }
+
+  p br {
+    display: none;
+  }
+
+  p {
+    font-size: 18px;
+  }
+
+  .captionMain {
+    margin: 36px 0px;
+  }
+  .blockDesc {
+    padding: 17px 33px;
+    margin-bottom: 40px;
+    text-align: justify;
+  }
+
+  .courseDesc {
+    width: 148px;
+    height: 53px;
+    margin-bottom: 10px;
+  }
+  .coursesBlocks {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .coursesBlocks {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .courseBlock h3 {
+    font-size: 14px;
+  }
+  .textDesc {
+    font-size: 6px;
+  }
+
+  .courseBlock {
+    width: 30.9%;
+    height: 100px;
+    padding: 10px 15px;
+    background-color: rgba(78, 78, 78, 1);
+    border-radius: 7px;
+    text-align: left;
+    font-size: 18px;
+  }
+  footer {
+    margin-top: 20px;
+    width: 568px;
+    height: 146px;
+  }
+
+  footer img {
+    width: 265px;
+    height: 126px;
+  }
+
+  /* .wrapper {
+    width: 760px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .searchBasics input,
+  .theme {
+    width: 568px;
+  }
+  .searchBasics button {
+    left: 81.5%;
+  }
+  .intro {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .page_intro {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .pageTitle {
+    width: auto;
+  }
+  .mainSize h3 {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .explanation_designation img {
+    width: 11px;
+    height: 17.6px;
+  }
+
+  .explanation_designation {
+    padding: 16px 29px 16px 36px;
+  }
+  .introductionBlock p {
+    font-weight: 400;
+  }
+  .nav_lesson p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 18.23px;
+    height: 14.814px;
+  }
+  .nav_lesson {
+    padding: 11px 18px;
+  }
+  .codeExample img {
+    width: 548px;
+    height: 698.274px;
+  }
+  .btnQuestion {
+    padding: 15px 179px;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 567px;
+    height: 104px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 93%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header,
+  main,
+  footer {
+    width: 400px;
+  }
+  .captionMain h1 {
+    font-size: 18px;
+  }
+  .captionMain img {
+    width: 24px !important;
+    height: 19px !important;
+  }
+  .imgMainInfo {
+    display: none;
+  }
+  .captionMain {
+    display: flex;
+    gap: 10px;
+  }
+  .blockDesc {
+    padding: 13px 23px;
+    margin-bottom: 33px;
+    text-align: justify;
+  }
+  .blockDesc p {
+    font-size: 14px;
+  }
+  .coursesBlocks {
+    margin-top: 20px;
+
+    gap: 20px;
+    font-size: 18px;
+  }
+  .courseDesc {
+    width: 352px;
+    height: 153px;
+    margin-bottom: 20px;
+  }
+  .courseBlock {
+    width: 100%;
+    height: 254px;
+    padding: 25px;
+  }
+  .courseBlock h3 {
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .textDesc {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  footer img {
+    display: none;
+  }
+
+  .wrapper {
+    width: 403px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signInForm {
+    width: 403px;
+    height: 377px;
+    gap: 64px;
+    padding: 52px 37px;
+  }
+  .activet {
+    width: 403px;
+  }
+  .signInForm h1 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .inputBtn_signInForm input,
+  .inputBtn_signInForm button {
+    width: 333px;
+    height: 40px;
+  }
+  .inputBtn_signInForm {
+    gap: 30px;
+  }
+  .searchBasics input,
+  .theme {
+    width: 400px;
+    height: 30px;
+  }
+
+  .lock img {
+    width: 11px !important;
+    height: 16px !important;
+  }
+  .searchBasics button {
+    left: 81.5%;
+    padding: 7.5px 28px;
+  }
+
+  .leaftTheme,
+  .leaftTheme p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .leaftTheme img {
+    width: 13.333px !important;
+    height: 15px !important;
+  }
+
+  .basicsMainImg {
+    width: 57px !important;
+    height: 70.799px !important;
+  }
+  .pageTitle {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .searchBasics button {
+    left: 77%;
+    padding: 7.5px 28px;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .basicsHead {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .introductionBlock {
+    gap: 30px;
+  }
+
+  .intro {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  main img {
+    width: 63px !important;
+    height: 72px !important;
+  }
+  .page_intro {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .example_designation {
+    padding: 15px 24px;
+  }
+  .example_designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .explanation_designation {
+    padding: 13px 24px;
+  }
+  .explanation_designation img {
+    width: 11px !important;
+    height: 17.6px !important;
+  }
+  .introductionBlock p {
+    font-size: 10px;
+  }
+  .nav_lesson p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 13px !important;
+    height: 10.564px !important;
+  }
+  .nav_lesson {
+    padding: 9px 11px;
+    gap: 10px;
+  }
+
+  .lessons_designation {
+    gap: 10px;
+  }
+  .codeExample img {
+    width: 380px !important;
+    height: 484px !important;
+  }
+  .btnQuestion {
+    padding: 14px 137px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 400px;
+    height: 96px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 90%;
+  }
+  .sendRequestBlock img {
+    width: 15.466px !important;
+    height: 12px !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  header,
+  main,
+  footer {
+    width: 280px;
+  }
+  header {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  .mainInfo {
+    width: 280px;
+  }
+  .blockDesc {
+    padding: 13px 16px;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  .blockDesc p {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .coursesBlocks {
+    margin-top: 20px;
+    gap: 20px;
+    font-size: 18px;
+  }
+  .coursesBlocks a {
+    border-radius: 7px;
+    border: 1px rgba(224, 224, 224, 1) solid;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    height: 97px;
+    overflow: hidden;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.9);
+    position: relative;
+  }
+  .courseDesc {
+    all: initial;
+    color: rgba(224, 224, 224, 1);
+    font-size: 14px;
+  }
+  .courseBlock h3 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  a h3 {
+    width: 138px;
+    height: 22px;
+    position: absolute;
+    top: 35%;
+    left: 28%;
+  }
+  .coursesBlocks a:hover {
+    /* background-color: rgba(47, 47, 47, 0.8); */
+    background-color: rgba(31, 30, 30, 0.3);
+  }
+  .coursesBlocks a:active {
+    /* background-color: rgba(47, 47, 47, 0.8); */
+    background-color: rgba(31, 30, 30, 0.9);
+  }
+  .textDesc {
+    font-size: 14px;
+    opacity: 0.3; /* Здесь 0.7 указывает на прозрачность текста (от 0 до 1) */
+  }
+  /* .textDesc:hover {
+    opacity: 0.2;
+  }
+  .textDesc:active {
+    opacity: 0.5;
+  }
+  h3:hover {
+    opacity: 1;
+  }
+  h3:active {
+    opacity: 1;
+  } */
+
+  footer {
+    background-image: url("../assets/footer360px.png");
+    width: 280px;
+    height: 115px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+  footer h3 {
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    padding: 23px;
+  }
+
+  .wrapper {
+    width: 280px;
+
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .signInForm {
+    width: 280px;
+    height: 329px;
+    gap: 40px;
+    padding: 25px 40px;
+    margin-top: 80px;
+  }
+  .activet {
+    width: 280px;
+  }
+  .signInForm h1 {
+    color: #fff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .inputBtn_signInForm input,
+  .inputBtn_signInForm button {
+    width: 230px;
+    height: 30px;
+  }
+
+  .inputBtn_signInForm input {
+    padding: 9px 13px;
+  }
+  .inputBtn_signInForm {
+    gap: 40px;
+  }
+
+  .searchBasics input,
+  .theme {
+    width: 280px;
+    height: 30px;
+  }
+
+  .leaftTheme,
+  .leaftTheme p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .leaftTheme img {
+    width: 13.333px !important;
+    height: 15px !important;
+  }
+  .searchBasics button {
+    left: 67.5%;
+  }
+
+  .intro {
+    font-size: 10px !important;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .introHead {
+    gap: 54px;
+  }
+  main img {
+    width: 63px !important;
+    height: 72px !important;
+  }
+  .page_intro {
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .example_designation {
+    padding: 13px 14px;
+  }
+  .example_designation p {
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .explanation_designation {
+    padding: 14px;
+  }
+  .explanation_designation img {
+    width: 11px !important;
+    height: 17.6px !important;
+  }
+  .introductionBlock p {
+    font-size: 10px;
+  }
+  .nav_lesson p {
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .nav_lesson img {
+    width: 13px !important;
+    height: 10.564px !important;
+  }
+  .nav_lesson {
+    padding: 8px 6px;
+    gap: 10px;
+    width: 31%;
+  }
+
+  .lessons_designation {
+    gap: 9px;
+  }
+  .codeExample img {
+    width: 260px !important;
+    height: 330px !important;
+  }
+  .btnQuestion {
+    padding: 6px 77px;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+  }
+  .sendRequestBlock,
+  .inputQuestion {
+    width: 280px;
+    height: 96px;
+  }
+  .iconSend {
+    position: relative;
+    top: 70%;
+    left: 89%;
+  }
+  .sendRequestBlock img {
+    width: 15.466px !important;
+    height: 12px !important;
+  }
+}

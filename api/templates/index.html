@@ -5,10 +5,11 @@
 
 {% block style %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <link rel="stylesheet" href="{% static '/css/adaptive.css' %}"/>
 {% endblock %}
 
 {% block content %}
-    <header>
+    <header class="headerBlock">
         <a href="{% url 'index' %}" class="">Python studying</a>
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
@@ -24,8 +25,8 @@
 
     <main>
         <div class="mainInfo">
-            <img src="{% static '/assets/pitonGlav.svg' %}" alt=""/>
-            <hr/>
+            <img src="{% static '/assets/pitonGlav.svg' %}" alt="" class="imgMainInfo">
+            <hr class="imgMainInfo">
 
             <div class="discriptionMain">
                 <div class="captionMain">
