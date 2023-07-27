@@ -647,6 +647,7 @@
   }
   .example_designation {
     padding: 13px 14px;
+    word-break: break-all;
   }
   .example_designation pre {
     font-size: 10px;
