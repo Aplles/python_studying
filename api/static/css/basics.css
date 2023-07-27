@@ -52,8 +52,8 @@ main {
 
 .theme {
     width: 784px;
-    height: 40px;
-    padding: 0px 20px 0px 25px;
+    height: 55px;
+    padding: 0 20px 0 25px;
     background-color: rgba(78, 78, 78, 1);
     border-radius: 7px;
     display: flex;
