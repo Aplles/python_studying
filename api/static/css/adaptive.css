@@ -466,7 +466,7 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 380px) {
   header,
   main,
   footer {
@@ -516,6 +516,7 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 600;
+    text-align: center;
   }
   a h3 {
     width: 138px;
