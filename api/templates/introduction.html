@@ -17,8 +17,9 @@
             <a href="{% url 'basic' theme.parent_page.id %}">{{ theme.parent_page.name }}</a> /
             <a href="{% url 'introduction' theme.id %}">{{ theme.name }}</a>
         </div>
-
-        <button class="enter intro">Выйти</button>
+        {% if request.user.is_authenticated %}
+            <a class="enter intro" href="{% url 'logout' %}">Выйти</a>
+        {% endif %}
     </header>
     <main class="mainSize introductionBlock">
         <img src="{% static '/assets/1basics.svg' %}" alt="" style="width: 100px; height:

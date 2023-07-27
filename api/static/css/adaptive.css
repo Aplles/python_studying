@@ -460,7 +460,7 @@
   header,
   main,
   footer {
-    width: 280px;
+    width: 380px;
   }
   header {
     font-size: 12px;
@@ -469,7 +469,7 @@
   }
 
   .mainInfo {
-    width: 280px;
+    width: 380px;
   }
   .blockDesc {
     padding: 13px 16px;
@@ -542,7 +542,7 @@
 
   footer {
     background-image: url("../assets/footer360px.png");
-    width: 280px;
+    width: 380px;
     height: 115px;
     display: flex;
     align-items: center;
@@ -594,7 +594,7 @@
 
   .searchBasics input,
   .theme {
-    width: 280px;
+    width: 380px;
     height: 30px;
   }
 
@@ -609,7 +609,7 @@
     height: 15px !important;
   }
   .searchBasics button {
-    left: 67.5%;
+    /*left: 67.5%;*/
   }
 
   .intro {
@@ -683,7 +683,7 @@
   }
   .sendRequestBlock,
   .inputQuestion {
-    width: 280px;
+    width: 380px;
     height: 96px;
   }
   .iconSend {
