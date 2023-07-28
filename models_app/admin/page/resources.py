@@ -11,6 +11,10 @@ class PageAdmin(admin.ModelAdmin):
         'updated_at',
     )
 
+    list_display = ('id', 'name', 'parent_page')
+
+    ordering = ('parent_page', 'name')
+
     fields = (
         'id',
         'name',
@@ -19,3 +23,5 @@ class PageAdmin(admin.ModelAdmin):
         'created_at',
         'updated_at',
     )
+
+    list_filter = ('parent_page', )
