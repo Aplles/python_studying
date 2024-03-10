@@ -235,7 +235,7 @@ function createBlock_link() {
     lessons_designation.appendChild(nav_lesson);
 
     const img = document.createElement("img");
-    img.src = "{% static '/assets/2basics.svg' %}";
+    img.src = "/static/assets/2basics.svg";
     nav_lesson.appendChild(img);
 
     const P = document.createElement("p");
