@@ -18,19 +18,19 @@ def main_page(apps, schema_editor):
         id=env("PYTHON_BASIC_UUID", cast=str),
         name="Python основы",
         parent_page=main,
-        icon=os.path.join('media', 'image_page', 'python.png')
+        icon=os.path.join('image_page', 'python.png')
     )
     Page.objects.get_or_create(
         id=env("PYTHON_OOP_UUID", cast=str),
         name="Python ООП",
         parent_page=main,
-        icon=os.path.join('media', 'image_page', 'python_oop.png')
+        icon=os.path.join('image_page', 'python_oop.png')
     )
     Page.objects.get_or_create(
         id=env("DJANGO_UUID", cast=str),
         name="Django",
         parent_page=main,
-        icon=os.path.join('media', 'image_page', 'django.png')
+        icon=os.path.join('image_page', 'django.png')
     )
 
 
