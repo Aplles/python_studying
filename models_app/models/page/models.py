@@ -17,6 +17,10 @@ class Page(models.Model):
         blank=True,
         null=True
     )
+    main_page = models.BooleanField(
+        default=False,
+        verbose_name="Находится на главной странице"
+    )
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
 

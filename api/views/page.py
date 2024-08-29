@@ -49,7 +49,7 @@ class ConstructorView(View):
 
     def get(self, request, *args, **kwargs):
         return render(request, 'constructor.html', context={
-            "pages": Page.objects.all()
+            "pages": Page.objects.filter(main_page=False)
         })
 
     def post(self, request, *args, **kwargs):

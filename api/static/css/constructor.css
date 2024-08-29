@@ -69,12 +69,22 @@ input {
     height: 50px;
 }
 
+.select_page {
+    width: 100%;
+    display: inline-flex;
+    vertical-align: top;
+}
 
 #select_page {
     border: 1px solid #4e4e4e;
     border-radius: 4px;
     padding: 0 20px;
     margin-left: 20px;
+    width: 100%;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .option_page {

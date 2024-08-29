@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from django.contrib.contenttypes.models import ContentType
 from service_objects.fields import ModelField
 from service_objects.services import ServiceWithResult
@@ -24,6 +26,7 @@ class TextBlockCreateService(ServiceWithResult):
                     polymorphic_ctype_id=ContentType.objects.get_for_model(TextBlock).id,
                     page=self.cleaned_data['page']
                 )
+                pass
         if self.data.get("TextBlock_CODE_new", None):
             for text_block_index in range(int(self.data.get("TextBlock_CODE_new"))):
                 position = next(self._positions_code_block())
@@ -55,6 +58,7 @@ class TextBlockCreateService(ServiceWithResult):
                     page=self.cleaned_data['page']
                 )
 
+    @lru_cache
     def _positions_text_block(self):
         for item in [
             key for key in self.data.keys()
@@ -62,6 +66,7 @@ class TextBlockCreateService(ServiceWithResult):
         ]:
             yield item.split("_")[2]
 
+    @lru_cache
     def _positions_code_block(self):
         for item in [
             key for key in self.data.keys()
@@ -69,6 +74,7 @@ class TextBlockCreateService(ServiceWithResult):
         ]:
             yield item.split("_")[2]
 
+    @lru_cache
     def _positions_header_text_block(self):
         for item in [
             key for key in self.data.keys()
@@ -76,6 +82,7 @@ class TextBlockCreateService(ServiceWithResult):
         ]:
             yield item.split("_")[2]
 
+    @lru_cache
     def _positions_quote_text_block(self):
         for item in [
             key for key in self.data.keys()

@@ -9,6 +9,8 @@
 {% endblock %}
 
 {% block content %}
+
+
     <header class="headerBlock">
         <a href="{% url 'index' %}" class="">Python studying</a>
         {% if request.user.is_authenticated %}
@@ -87,5 +89,6 @@
     <!--    <img src="./assets/footerInd.svg" alt=""/>-->
     <!--</footer>-->
     <script src="{% static '/js/enter.js' %}"></script>
+
 {% endblock %}
 

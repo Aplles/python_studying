@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-    <script src="{% static 'js/colorIntrod.js' %}"></script>
     <header class="introHead">
         <div class="linkblock intro">
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
@@ -41,13 +40,14 @@
                     </p>
                 {% elif block.type == 'CODE' %}
                     <div class="example_designation">
+                        <button class="copy-button" onclick="copy_code(this)">Копировать</button>
                         <pre>{{ block.text|linebreaksbr }}</pre>
                     </div>
                 {% elif block.type == 'HEADERTEXT' %}
                     <h3>{{ block.text }}</h3>
                 {% elif block.type == 'QUOTETEXT' %}
                     <div class="designation">
-                        <img src="./assets/lapo4ka.svg" alt="" />
+                        <img src="./assets/lapo4ka.svg" alt=""/>
                         <p>
                             {{ block.text }}
                         </p>
@@ -67,14 +67,14 @@
                     <img src="{{ block.image.url }}" alt=""/>
                 </section>
             {% elif block.polymorphic_ctype.model == 'linkblock' %}
-                 <a href="{% url 'introduction' block.page_link.id %}">
-                     <div class="lessons_designation">
+                <a href="{% url 'introduction' block.page_link.id %}">
+                    <div class="lessons_designation">
                         <div class="nav_lesson">
                             <img src="{{ block.page_link.icon.url }}" alt=""/>
                             <p>{{ block.page_link.name }}</p>
                         </div>
                     </div>
-                 </a>
+                </a>
             {% endif %}
         {% endfor %}
         <!--    <button type="submit" class="btnQuestion">Оставить вопрос</button>-->
@@ -92,4 +92,14 @@
         <!--    </div>-->
     </main>
     <script src="{% static '/js/colorIntrod.js' %}"></script>
+    <script>
+        function copy_code(current_block) {
+            let text = current_block.parentElement.getElementsByTagName('pre')[0].innerText;
+            navigator.clipboard.writeText(text).then(function () {
+                alert('Text copied to clipboard!');
+            }, function (err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
 {% endblock %}
