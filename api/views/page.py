@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import render, redirect
 from django.views import View
 from service_objects.services import ServiceOutcome
@@ -19,8 +20,10 @@ class PageView(View):
         })
 
 
-class IntroductionView(View):
+class IntroductionView(View, LoginRequiredMixin):
     def dispatch(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return self.handle_no_permission()
         post = Access.objects.filter(user=request.user, page__id=kwargs['id'])
         if not post.exists():
             return redirect('index')
@@ -45,7 +48,9 @@ class BasicView(View):
         })
 
 
-class ConstructorView(View):
+class ConstructorView(UserPassesTestMixin, View):
+    def test_func(self):
+        return self.request.user.is_superuser
 
     def get(self, request, *args, **kwargs):
         return render(request, 'constructor.html', context={
@@ -54,7 +59,6 @@ class ConstructorView(View):
 
     def post(self, request, *args, **kwargs):
         ServiceOutcome(FillPageService, request.POST, request.FILES)
-        print(request.POST.get("TextBlock_CODE_1_text"))
         return redirect("constructor")
 
 
