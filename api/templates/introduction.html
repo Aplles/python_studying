@@ -92,17 +92,21 @@
     <script src="{% static '/js/colorIntrod.js' %}"></script>
     <script>
         function copy_code(current_block) {
-            let text = current_block.parentElement.getElementsByTagName('pre')[0].innerText;
+            let preElement = current_block.parentElement.getElementsByTagName('pre');
+            if (preElement) {
+                let text = preElement[0].innerText;
 
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(function () {
-                    alert('Text copied to clipboard!');
-                }, function (err) {
-                    console.error('Could not copy text: ', err);
-                });
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(function () {
+                        alert('Text copied to clipboard!');
+                    }, function (err) {
+                        console.error('Could not copy text: ', err);
+                    });
+                } else {
+                    fallback_copy_to_clipboard(text);
+                }
             } else {
-                // Если Clipboard API недоступен, можно использовать старый метод
-                fallback_copy_to_clipboard(text);
+                console.error('No <pre> element found for the current block.');
             }
         }
 
@@ -113,7 +117,7 @@
             textArea.select();
             try {
                 document.execCommand('copy');
-                alert('Text copied to clipboard!');
+                alert('Text copied to clipboard! _');
             } catch (err) {
                 console.error('Fallback: Could not copy text', err);
             }
