@@ -7,7 +7,7 @@ from models_app.models import User
 class UserAdmin(admin.ModelAdmin):
     fieldsets = [
         ("Общая информация",
-         {'fields': ['username', 'password', 'group', 'role', ]}),
+         {'fields': ['username', 'password']}),
         ('Права доступа', {
             'fields': ['is_superuser', 'user_permissions', 'groups',
                        'is_staff', 'is_active']}),
