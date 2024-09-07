@@ -8,7 +8,7 @@ django = "==4.0.0"
 django-environ = "*"
 django-split-settings = "*"
 psycopg2-binary = "*"
-django-service-objects = {editable = true, git = "https://github.com/dvkurbatov/django-service-objects.git"}
+django-service-objects = {editable = true, git = "https://github.com/dvkurbatov/django-service-objects.git", ref = "20220602"}
 pillow = "*"
 pipenv = "*"
 djangorestframework = "==3.13.1"
