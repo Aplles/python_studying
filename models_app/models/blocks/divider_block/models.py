@@ -9,5 +9,6 @@ class DividerBlock(Block):
 
     class Meta:
         db_table = "divider_blocks"
+        app_label = "models_app"
         verbose_name = "Блок с отступом"
         verbose_name_plural = "Блоки с отступом"

@@ -20,5 +20,6 @@ class Access(models.Model):
 
     class Meta:
         db_table = 'accesses'
+        app_label = "models_app"
         verbose_name = 'Доступ'
         verbose_name_plural = 'Доступы'

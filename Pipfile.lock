@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e822652f7f09b97c7dcab89bdc439a4e021187a7065f919ad5b82011c621b827"
+            "sha256": "58342919db527b35ba64f4323758aa1f44aea76710df01956b502489602449e1"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -45,8 +45,7 @@
                 "sha256:d5a8a14da819a8b9237ee4d8c78dfe056ff6e8a7511987be627192225113ee75"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
-            "version": "==4.0"
+            "version": "==4.0.0"
         },
         "django-cors-headers": {
             "hashes": [
@@ -54,7 +53,6 @@
                 "sha256:92cf4633e22af67a230a1456cb1b7a02bb213d6536d2dcb2a4a24092ea9cebc2"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
             "version": "==4.4.0"
         },
         "django-environ": {
@@ -63,8 +61,14 @@
                 "sha256:f32a87aa0899894c27d4e1776fa6b477e8164ed7f6b3e410a62a6d72caaf64be"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6' and python_version < '4'",
             "version": "==0.11.2"
+        },
+        "django-modeladmin-reorder": {
+            "hashes": [
+                "sha256:bf42d0dcd184b796b4d6d988c4b4cea7914adfc4430dd9978a8a0199051f189f"
+            ],
+            "index": "pypi",
+            "version": "==0.3.1"
         },
         "django-polymorphic": {
             "hashes": [
@@ -82,18 +86,12 @@
             "index": "pypi",
             "version": "==0.1.10"
         },
-        "django-service-objects": {
-            "editable": true,
-            "git": "https://github.com/dvkurbatov/django-service-objects.git",
-            "ref": "42ea21864aade1897832ac126040f017709d6b03"
-        },
         "django-split-settings": {
             "hashes": [
                 "sha256:72bd7dd9f12602585681074d1f859643fb4f6b196b584688fab86bdd73a57dff",
                 "sha256:d3975aa3601e37f65c59b9977b6bcb1de8bc27496930054078589c7d56998a9d"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.9' and python_version < '4.0'",
             "version": "==1.3.2"
         },
         "djangorestframework": {
@@ -102,7 +100,6 @@
                 "sha256:24c4bf58ed7e85d1fe4ba250ab2da926d263cd57d64b03e8dcef0ac683f8b1aa"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.6'",
             "version": "==3.13.1"
         },
         "filelock": {
@@ -119,7 +116,6 @@
                 "sha256:f014447a0101dc57e294f6c18ca6b40227a4c90e9bdb586042628030cba004ec"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
             "version": "==23.0.0"
         },
         "packaging": {
@@ -214,7 +210,6 @@
                 "sha256:ff337c552345e95702c5fde3158acb0625111017d0e5f24bf3acdb9cc16b90d1"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
             "version": "==10.4.0"
         },
         "pipenv": {
@@ -223,7 +218,6 @@
                 "sha256:ae5a83fa5b66065cebd2bd8f73f0b281b3bd202a13d58cc644f0b9765128c990"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.8'",
             "version": "==2024.0.1"
         },
         "platformdirs": {
@@ -310,7 +304,6 @@
                 "sha256:f9b5571d33660d5009a8b3c25dc1db560206e2d2f89d3df1cb32d72c0d117d52"
             ],
             "index": "pypi",
-            "markers": "python_version >= '3.7'",
             "version": "==2.9.9"
         },
         "pytz": {
@@ -351,6 +344,14 @@
             ],
             "markers": "python_version < '3.11'",
             "version": "==4.12.2"
+        },
+        "tzdata": {
+            "hashes": [
+                "sha256:2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd",
+                "sha256:9068bc196136463f5245e51efda838afa15aaeca9903f49050dfa2679db4d252"
+            ],
+            "markers": "sys_platform == 'win32'",
+            "version": "==2024.1"
         },
         "virtualenv": {
             "hashes": [

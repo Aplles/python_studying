@@ -26,6 +26,7 @@ class Block(PolymorphicModel):
 
     class Meta:
         db_table = "blocks"
+        app_label = "models_app"
         ordering = [
             "position",
         ]

@@ -32,5 +32,6 @@ class TextBlock(Block):
 
     class Meta:
         db_table = "text_blocks"
+        app_label = "models_app"
         verbose_name = "Блок с текстом"
         verbose_name_plural = "Блоки с текстом"

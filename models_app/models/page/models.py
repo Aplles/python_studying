@@ -29,5 +29,6 @@ class Page(models.Model):
 
     class Meta:
         db_table = 'pages'
+        app_label = "models_app"
         verbose_name = 'Страница'
         verbose_name_plural = 'Страницы'

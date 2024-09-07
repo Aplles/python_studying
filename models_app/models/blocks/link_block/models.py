@@ -17,5 +17,6 @@ class LinkBlock(Block):
 
     class Meta:
         db_table = "line_blocks"
+        app_label = "models_app"
         verbose_name = "Блок с ссылкой"
         verbose_name_plural = "Блоки с ссылкой"

@@ -9,5 +9,6 @@ class User(AbstractUser):
 
     class Meta:
         db_table = 'users'
+        app_label = "models_app"
         verbose_name = 'Пользователь'
         verbose_name_plural = 'Пользователи'
