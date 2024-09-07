@@ -93,11 +93,31 @@
     <script>
         function copy_code(current_block) {
             let text = current_block.parentElement.getElementsByTagName('pre')[0].innerText;
-            navigator.clipboard.writeText(text).then(function () {
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(function () {
+                    alert('Text copied to clipboard!');
+                }, function (err) {
+                    console.error('Could not copy text: ', err);
+                });
+            } else {
+                // Если Clipboard API недоступен, можно использовать старый метод
+                fallback_copy_to_clipboard(text);
+            }
+        }
+
+        function fallback_copy_to_clipboard(text) {
+            let textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
                 alert('Text copied to clipboard!');
-            }, function (err) {
-                console.error('Could not copy text: ', err);
-            });
+            } catch (err) {
+                console.error('Fallback: Could not copy text', err);
+            }
+            document.body.removeChild(textArea);
         }
     </script>
 {% endblock %}
