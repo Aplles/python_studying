@@ -36,6 +36,7 @@ hr.block {
     border-radius: 7px;
     border: 1px solid;
     padding: 15px;
+    height: 120px;
 }
 
 .divBlock {

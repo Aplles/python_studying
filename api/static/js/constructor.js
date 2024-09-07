@@ -10,7 +10,7 @@ function createBlock() {
     divBlock.appendChild(P);
     P.classList.add("block");
     // Создаем input для ввода текста
-    var input = document.createElement("input");
+    var input = document.createElement("textarea");
     input.type = "text";
     input.classList.add("inputBtn");
     input.name = "TextBlock_TEXT_позиция_text";
@@ -371,7 +371,7 @@ function hideBtn() {
 
 function saveInputs() {
     const blockConfig = [
-        {selector: "input[name^='TextBlock_TEXT_']", name: "TextBlock_TEXT_new"},
+        {selector: "textarea[name^='TextBlock_TEXT_']", name: "TextBlock_TEXT_new"},
         {selector: "textarea[name^='TextBlock_CODE_']", name: "TextBlock_CODE_new"},
         {selector: "input[name^='CalloutBlock_'][name$='_text']", name: "CalloutBlock_text_new"},
         {selector: "input[name^='CalloutBlock_'][name$='_image']", name: "CalloutBlock_image_new"},

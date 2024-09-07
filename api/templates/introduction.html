@@ -35,9 +35,7 @@
         {% for block in blocks %}
             {% if block.polymorphic_ctype.model == 'textblock' %}
                 {% if block.type == 'TEXT' %}
-                    <p>
-                        {{ block.text }}
-                    </p>
+                    <pre>{{ block.text|linebreaksbr }}</pre>
                 {% elif block.type == 'CODE' %}
                     <div class="example_designation">
                         <button class="copy-button" onclick="copy_code(this)">Копировать</button>
