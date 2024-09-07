@@ -1,3 +1,5 @@
+from functools import lru_cache
+
 from django.contrib.contenttypes.models import ContentType
 from service_objects.fields import ModelField
 from service_objects.services import ServiceWithResult
@@ -16,12 +18,14 @@ class DividerBlockCreateService(ServiceWithResult):
     def _create(self):
         if self.data.get("DividerBlock_new", None):
             for link_block_index in range(int(self.data.get("DividerBlock_new"))):
+                position = next(self._positions())
                 DividerBlock.objects.create(
-                    position=next(self._positions()),
+                    position=position,
                     polymorphic_ctype_id=ContentType.objects.get_for_model(DividerBlock).id,
                     page=self.cleaned_data['page']
                 )
 
+    @lru_cache
     def _positions(self):
         for item in [
             key for key in self.data.keys()
