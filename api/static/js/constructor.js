@@ -88,22 +88,6 @@ function createBlock_TextBlock_Line() {
     // Создаем элемент p и добавляем текст
     const P = document.createElement("p");
 
-    // Создаем SVG элемент
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("width", "10");
-    svg.setAttribute("height", "81");
-    svg.setAttribute("viewBox", "0 0 4 81");
-    svg.setAttribute("fill", "none");
-
-    // Создаем path элемент
-    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    path.setAttribute("d", "M2 2L2 79");
-    path.setAttribute("stroke", "white");
-    path.setAttribute("stroke-width", "4");
-    path.setAttribute("stroke-linecap", "round");
-    // Добавляем svg и p в блок
-    block.appendChild(svg);
-    svg.appendChild(path);
     block.appendChild(P);
     // Создаем input для ввода текста
     var input = document.createElement("input");

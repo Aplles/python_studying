@@ -1,6 +1,7 @@
 .designation {
     display: flex;
     gap: 20px;
+    align-items: stretch;
 }
 
 .example_designation {
@@ -17,6 +18,8 @@
 
 pre {
     white-space: pre-wrap;
+    line-height: 25px;
+    font-size: 18px;
 }
 
 .explanation_designation {
@@ -170,4 +173,10 @@ pre {
 
 main p {
     font-weight: 400;
+}
+
+.left-line {
+    width: 5px;
+    background-color: white;
+    border-radius: 15px;
 }

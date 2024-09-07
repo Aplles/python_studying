@@ -7,12 +7,9 @@ main {
     margin: 40px auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 20px;
 }
 
-.mainSize {
-    height: 2315px;
-}
 
 .searchBasics input {
     width: 784px;

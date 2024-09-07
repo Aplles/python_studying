@@ -18,7 +18,7 @@
     {% block style %}{% endblock %}
 
     <script>
-        {% if DEBUG == 'False' %}
+        {% if DEBUG == 'False' and not request.user.is_superuser  %}
             document.addEventListener('keydown', function (event) {
                 if (event.key === 'PrintScreen') {
                     event.preventDefault();
