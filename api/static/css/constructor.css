@@ -36,6 +36,9 @@ hr.block {
     border-radius: 7px;
     border: 1px solid;
     padding: 15px;
+}
+
+textarea.inputBtn {
     height: 120px;
 }
 
