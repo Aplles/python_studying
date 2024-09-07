@@ -18,34 +18,36 @@
     {% block style %}{% endblock %}
 
     <script>
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'PrintScreen') {
-                event.preventDefault();
-                alert('Скриншоты запрещены!');
-            }
-        });
+        {% if DEBUG == 'False' %}
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'PrintScreen') {
+                    event.preventDefault();
+                    alert('Скриншоты запрещены!');
+                }
+            });
 
-        {#document.addEventListener('contextmenu', function (event) {#}
-        {#    event.preventDefault();#}
-        {# });#}
-        {##}
-        {#window.addEventListener('blur', function () {#}
-        {#    document.body.classList.add('blur-active');#}
-        {# });#}
-        {##}
-        {#window.addEventListener('focus', function () {#}
-        {#    document.body.classList.remove('blur-active');#}
-        {# });#}
-        {##}
-        {#document.addEventListener('keydown', function (e) {#}
-        {#    if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p' || e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'с')) {#}
-        {#        e.preventDefault();#}
-        {#    }#}
-        {# });#}
-        {##}
-        {#document.addEventListener('contextmenu', event => event.preventDefault());#}
-        {#document.onselectstart = () => false;#}
-        {#document.oncopy = () => false;#}
+            document.addEventListener('contextmenu', function (event) {
+                event.preventDefault();
+            });
+
+            window.addEventListener('blur', function () {
+                document.body.classList.add('blur-active');
+            });
+
+            window.addEventListener('focus', function () {
+                document.body.classList.remove('blur-active');
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.ctrlKey && (e.key === 's' || e.key === 'u' || e.key === 'p' || e.key === 'c' || e.key === 'x' || e.key === 'v' || e.key === 'с')) {
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('contextmenu', event => event.preventDefault());
+            document.onselectstart = () => false;
+            document.oncopy = () => false;
+        {% endif %}
     </script>
 </head>
 <body>

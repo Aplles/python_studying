@@ -23,11 +23,11 @@ function createBlock() {
         title.remove();
     };
 
+    divBlock.appendChild(title);
     divBlock.appendChild(input);
 
     // Добавляем новый блок в контейнер
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(divBlock);
     divBlock.appendChild(deleteButton);
 }
@@ -38,12 +38,15 @@ function createBlock_H1() {
 
     const divBlock = document.createElement("div");
     divBlock.classList.add("divBlock");
+
+    const title = document.createElement("p");
+    title.innerHTML = "БЛОК С ЗАГОЛОВКОМ - TextBlock_HEADERTEXT";
+    divBlock.appendChild(title);
+
     // Создаем новый блок h1
     const H1 = document.createElement("h1");
     H1.classList.add("block");
     divBlock.appendChild(H1);
-    const title = document.createElement("p");
-    title.innerHTML = "БЛОК С ЗАГОЛОВКОМ - TextBlock_HEADERTEXT";
 
     // Создаем input для ввода текста
     var input = document.createElement("input");
@@ -61,7 +64,6 @@ function createBlock_H1() {
     divBlock.appendChild(input);
     // Добавляем новый блок в контейнер
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(divBlock);
     divBlock.appendChild(deleteButton);
 }
@@ -77,11 +79,14 @@ function createBlock_TextBlock_Line() {
 
     block.classList.add("designation"); // Добавляем класс "designation"
     block.classList.add("block");
+
+    const title = document.createElement("p");
+    title.innerHTML = "БЛОК ТЕКСТ ЛИНИЯ - TextBlock_QUOTETEXT";
+    divBlock.appendChild(title);
+
     divBlock.appendChild(block);
     // Создаем элемент p и добавляем текст
     const P = document.createElement("p");
-    const title = document.createElement("p");
-    title.innerHTML = "БЛОК ТЕКСТ ЛИНИЯ - TextBlock_QUOTETEXT";
 
     // Создаем SVG элемент
     const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
@@ -117,7 +122,6 @@ function createBlock_TextBlock_Line() {
 
     // Добавляем новый блок в контейнер
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(divBlock);
     divBlock.appendChild(deleteButton);
 }
@@ -140,6 +144,7 @@ function createBlock_TextBlock_CODE() {
     const block = document.createElement("div");
     block.classList.add("example_designation"); // Добавляем класс "designation"
     block.classList.add("block");
+    divBlock.appendChild(title);
     divBlock.appendChild(block);
     block.appendChild(P);
     // Создаем input для ввода текста
@@ -154,11 +159,9 @@ function createBlock_TextBlock_CODE() {
         divBlock.remove();
         title.remove();
     };
-
     divBlock.appendChild(input);
     // Добавляем новый блок в контейнер
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(divBlock);
     divBlock.appendChild(deleteButton);
 }
@@ -203,13 +206,13 @@ function createBlock_ImageBlock() {
 
     // Добавляем элемент img в блок section
 
+    section.appendChild(title);
     section.appendChild(imageInput);
     section.appendChild(imagePreview);
     // Добавляем новый блок в контейнер
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(section);
-    container.appendChild(deleteButton);
+    section.appendChild(deleteButton);
 }
 
 function createBlock_link() {
@@ -276,6 +279,8 @@ function createBlock_hrBlock() {
 
     const title = document.createElement("p");
     title.innerHTML = "БЛОК hr";
+    divBlock.appendChild(title);
+
     // Создаем input для ввода текста
     var input = document.createElement("input");
     input.type = "text";
@@ -297,7 +302,6 @@ function createBlock_hrBlock() {
     // Добавляем новый блок в контейнер
 
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(divBlock);
     divBlock.appendChild(hr);
     divBlock.appendChild(input);
@@ -344,6 +348,7 @@ function createBlock_ExplanationDesignation() {
         explanationDesignation.remove();
         title.remove();
     };
+    explanationDesignation.appendChild(title);
     explanationDesignation.appendChild(img);
     // explanationDesignation.appendChild(svg);
     explanationDesignation.appendChild(p);
@@ -352,7 +357,6 @@ function createBlock_ExplanationDesignation() {
     explanationDesignation.appendChild(input);
 
     const container = document.getElementById("blocks-container");
-    container.appendChild(title);
     container.appendChild(explanationDesignation);
     explanationDesignation.appendChild(deleteButton);
 }
@@ -408,7 +412,7 @@ function saveInputs() {
         var divBlockId = parentDivBlock.getAttribute("id");
 
         // Заменить _позиция в имени newName
-        newName = newName.replace("_позиция", "_" + divBlockId);
+        newName = newName.replace(/_\d+|_позиция/g, "_" + divBlockId);
 
         if (type === "TextBlock_TEXT_" && input.name.includes("_позиция_text")) {
             newName = "TextBlock_TEXT_" + divBlockId + "_text";

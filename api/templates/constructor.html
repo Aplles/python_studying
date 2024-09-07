@@ -10,12 +10,12 @@
 {% endblock %}
 
 {% block content %}
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
     <header>
         <div class="linkblock">
             <a href="{% url 'index' %}" class="">Python и разработка</a> /
             <a href="{% url 'constructor' %}">Конструктор</a>
         </div>
-
         <button class="enter">Выйти</button>
     </header>
     <form action="{% url 'constructor' %}" method="post" enctype="multipart/form-data">
@@ -35,7 +35,7 @@
                 </div>
             </div>
 
-            <div id="blocks-container"></div>
+            <div id="blocks-container" class="sortable-container"></div>
             <div class="btnBlock">
                 <button type="button" onclick="createBlock()">Блок с текстом</button>
                 <button type="button" onclick="createBlock_TextBlock_CODE()">Блок с кодом</button>
@@ -62,4 +62,17 @@
     </form>
     <script src="{% static '/js/constructor.js' %}"></script>
     <script src="{% static '/js/colorIntrod.js' %}"></script>
+    <script>
+        const containers = document.querySelectorAll('.sortable-container');
+        containers.forEach(container => {
+            new Sortable(container, {
+                group: 'shared',
+                animation: 150,
+                ghostClass: 'ghost',
+                onEnd: function (evt) {
+
+                }
+            });
+        });
+    </script>
 {% endblock %}
