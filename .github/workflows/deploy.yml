@@ -1,0 +1,27 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - 'release/**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Ansible
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y ansible
+
+    - name: Add SSH key and run Ansible playbook
+      run: |
+        eval "$(ssh-agent -s)"
+        ssh-add <(echo "${{ secrets.DEPLOY_SSH_KEY }}")
+        ansible-playbook ./deploy.yml -v -i ${{ secrets.DEPLOYMENT_IP }}, --extra-vars "project=${{ secrets.PROJECT_USER }}"
+      env:
+        ANSIBLE_HOST_KEY_CHECKING: 'false'

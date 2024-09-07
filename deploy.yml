@@ -1,0 +1,62 @@
+- hosts: all
+  user: "{{ project }}"
+
+  vars:
+    projectName: "{{ project }}"
+    user: "{{ project }}"
+    type: "{{ build_type }}"
+
+  tasks:
+    - name: Set username
+      set_fact:
+        remote_user: "{{ user }}"
+        tmp_dir: /var/www/{{ projectName }}/ss/releases/{{ansible_date_time.date}}-{{ansible_date_time.hour}}{{ansible_date_time.minute}}{{ansible_date_time.second}}
+
+    - name: Copy project src
+      synchronize:
+        src: ./
+        dest: "{{ tmp_dir }}"
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=.env"
+          - "--exclude=deploy.yml"
+          - "--exclude=.gitlab-ci.yml"
+          - "--exclude=ansible_data"
+
+    - name: Make symlink for .env
+      command: ln -s /var/www/{{ projectName }}/ss/shared/config/.env {{ tmp_dir }}/
+
+    - name: Make symlink for .venv
+      command: ln -s /var/www/{{ projectName }}/ss/shared/.venv {{ tmp_dir }}/.venv
+
+    - name: Make symlink for media
+      command: ln -s /var/www/{{ projectName }}/ss/shared/media {{ tmp_dir }}/media
+
+    - name: Make symlink for logs
+      command: ln -s /var/www/{{ projectName }}/ss/shared/logs {{ tmp_dir }}/logs
+
+    - name: Prepare pipenv
+      shell: cd {{ tmp_dir }} && ~/.pyenv/shims/pipenv install --skip-lock
+
+    - name: Run migrations
+      shell: cd {{ tmp_dir }} && ~/.pyenv/shims/pipenv run python manage.py migrate
+
+    - name: Create static folder
+      file:
+        path: "{{ tmp_dir }}/static"
+        state: directory
+
+    - name: Collect static
+      shell: cd {{ tmp_dir }} && ~/.pyenv/shims/pipenv run python manage.py collectstatic --noinput
+
+    - name: Remove old symlink
+      command: rm -f /var/www/{{ projectName }}/ss/current
+
+    - name: Make symlink for new current
+      command: ln -s  {{ tmp_dir }} /var/www/{{ projectName }}/ss/current
+
+    - name: Restart gunicorn service
+      shell: sudo systemctl restart gunicorn.service
+
+    - name: Delete prevs deploys
+      shell: cd /var/www/{{ projectName }}/ss && CURRENT=`readlink -f ./current` && cd ./releases && ls  -d $PWD/* | grep -v $CURRENT | xargs rm -rf
