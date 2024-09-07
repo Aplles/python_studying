@@ -18,19 +18,8 @@ class UserLoginView(View):
 
     def post(self, request, *args, **kwargs):
         outcome = ServiceOutcome(UserLoginService, request.POST)
-        page = Page.objects.get(parent_page__isnull=True)
-        pages = Page.objects.filter(parent_page=page)
-        if hasattr(outcome.service, 'error'):
-            return render(request, 'index.html', context={
-                'page': page,
-                'pages': pages,
-                'error': outcome.service.error
-            })
         login(request, outcome.result)
-        return render(request, 'index.html', context={
-            'page': page,
-            'pages': pages,
-        })
+        return redirect("index")
 
 
 class UserRenderCreateView(View):
